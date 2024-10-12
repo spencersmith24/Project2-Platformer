@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhcaup6f5wm1f"]
+
+[ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
+[ext_resource type="Script" path="res://Scripts/GameController.gd" id="3_okkwb"]
+[ext_resource type="PackedScene" uid="uid://wokgixou3e57" path="res://GameObjects/diamond.tscn" id="4_3bc6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4nvf"]
+size = Vector2(330, 20)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(111, 135)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 119)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(65, 1)
+shape = SubResource("RectangleShape2D_e4nvf")
+
+[node name="Player" parent="." instance=ExtResource("1_bqwsb")]
+
+[node name="GameController" type="Node" parent="."]
+script = ExtResource("3_okkwb")
+
+[node name="Diamond" parent="." instance=ExtResource("4_3bc6e")]
+position = Vector2(-90, 10)
