@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bhcaup6f5wm1f"]
+[gd_scene load_steps=13 format=4 uid="uid://bhcaup6f5wm1f"]
 
 [ext_resource type="Texture2D" uid="uid://bwx67xjmbjgft" path="res://Assets/kenney_background-elements-redux/Backgrounds/backgroundCastles.png" id="1_7n0kg"]
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
@@ -8,6 +8,24 @@
 [ext_resource type="PackedScene" uid="uid://mbkaybra0y0l" path="res://GameObjects/key.tscn" id="5_givim"]
 [ext_resource type="PackedScene" uid="uid://tglgwgytuvrc" path="res://GameObjects/enemy.tscn" id="5_pudkw"]
 [ext_resource type="PackedScene" uid="uid://53eqjoyrp0t1" path="res://GameObjects/door.tscn" id="6_vi4uc"]
+
+[sub_resource type="Curve2D" id="Curve2D_pk883"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 20, -323, 0, 0, 0, 0, 61, -323, 0, 0, 0, 0, 20, -323)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_po2hp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 67, -270, 0, 0, 0, 0, 174, -270, 0, 0, 0, 0, 67, -270)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_yxmg3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 307, -221, 0, 0, 0, 0, 350, -221, 0, 0, 0, 0, 307, -221)
+}
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svi3m"]
 size = Vector2(18, 95.5)
@@ -41,31 +59,53 @@ position = Vector2(314, -221)
 
 [node name="Enemies" type="Node2D" parent="lvlObjects"]
 
-[node name="Enemy" parent="lvlObjects/Enemies" groups=["Enemies"] instance=ExtResource("5_pudkw")]
-position = Vector2(28, -333)
+[node name="Enemy1Path" type="Path2D" parent="lvlObjects/Enemies"]
+position = Vector2(0, -6)
+curve = SubResource("Curve2D_pk883")
 
-[node name="Enemy2" parent="lvlObjects/Enemies" groups=["Enemies"] instance=ExtResource("5_pudkw")]
-position = Vector2(85, -269)
+[node name="PathFollow2D" type="PathFollow2D" parent="lvlObjects/Enemies/Enemy1Path"]
+position = Vector2(20, -323)
+rotates = false
 
-[node name="Enemy3" parent="lvlObjects/Enemies" groups=["Enemies"] instance=ExtResource("5_pudkw")]
-position = Vector2(340, -221)
+[node name="Enemy" parent="lvlObjects/Enemies/Enemy1Path/PathFollow2D" instance=ExtResource("5_pudkw")]
+position = Vector2(0, -4)
+
+[node name="Enemy2Path" type="Path2D" parent="lvlObjects/Enemies"]
+position = Vector2(0, 1)
+curve = SubResource("Curve2D_po2hp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="lvlObjects/Enemies/Enemy2Path"]
+position = Vector2(67, -270)
+rotates = false
+
+[node name="Enemy2" parent="lvlObjects/Enemies/Enemy2Path/PathFollow2D" instance=ExtResource("5_pudkw")]
+
+[node name="Enemy3Path" type="Path2D" parent="lvlObjects/Enemies"]
+curve = SubResource("Curve2D_yxmg3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="lvlObjects/Enemies/Enemy3Path"]
+position = Vector2(307, -221)
+rotates = false
+
+[node name="Enemy3" parent="lvlObjects/Enemies/Enemy3Path/PathFollow2D" instance=ExtResource("5_pudkw")]
+speed = 0.3
 
 [node name="Door" parent="lvlObjects" instance=ExtResource("6_vi4uc")]
 position = Vector2(332, -291)
 
+[node name="LadderArea" type="Area2D" parent="lvlObjects"]
+position = Vector2(249, -186)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvlObjects/LadderArea"]
+position = Vector2(-1, -39)
+shape = SubResource("RectangleShape2D_svi3m")
+
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
-position = Vector2(-49, -225)
+position = Vector2(-50, -225)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3.73, 3.73)
 
-[node name="LadderArea" type="Area2D" parent="."]
-position = Vector2(249, -186)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderArea"]
-position = Vector2(-1, -44.25)
-shape = SubResource("RectangleShape2D_svi3m")
-
 [connection signal="body_entered" from="lvlObjects/Key" to="Player" method="_on_key_body_entered"]
-[connection signal="body_entered" from="LadderArea" to="Player" method="_on_ladder_area_body_entered"]
-[connection signal="body_exited" from="LadderArea" to="Player" method="_on_ladder_area_body_exited"]
+[connection signal="body_entered" from="lvlObjects/LadderArea" to="Player" method="_on_ladder_area_body_entered"]
+[connection signal="body_exited" from="lvlObjects/LadderArea" to="Player" method="_on_ladder_area_body_exited"]

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var START_POS = self.position
+
 var hasKey = false
 var canClimb = false
 
@@ -65,3 +67,6 @@ func _on_ladder_area_body_entered(body):
 func _on_ladder_area_body_exited(body):
 	if body == self:
 		canClimb = false
+
+func collide_with_enemy():
+	position = START_POS

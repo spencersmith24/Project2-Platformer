@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://tglgwgytuvrc"]
+[gd_scene load_steps=6 format=3 uid="uid://tglgwgytuvrc"]
 
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ty213"]
 [ext_resource type="Texture2D" uid="uid://bd4hfacjlxpen" path="res://Assets/prototyping_assets/Characters/character_0015.png" id="1_vojm0"]
 [ext_resource type="Texture2D" uid="uid://ctxinf44jkijf" path="res://Assets/prototyping_assets/Characters/character_0016.png" id="2_r8t3e"]
 
@@ -28,7 +29,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5rs3"]
 radius = 8.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="Area2D" groups=["Enemies"]]
+script = ExtResource("1_ty213")
 metadata/_edit_horizontal_guides_ = [-24.0]
 metadata/_edit_group_ = true
 
@@ -40,3 +42,5 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_k5rs3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
