@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var hasKey = false
+var canClimb = false
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -350.0
@@ -25,6 +26,7 @@ func _process(delta):
 	elif (velocity.x < 0):
 		$AnimatedSprite2D.scale.x = 1
 		
+		
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -34,6 +36,10 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	
+	# Handle Climb
+	if Input.is_action_pressed("climb") and canClimb:
+		velocity.y = SPEED * -.5
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("walk_L", "walk_R")
@@ -49,3 +55,13 @@ func _on_key_body_entered(body):
 	if body == self:
 		hasKey = true
 		$"../lvlObjects/Key".queue_free()
+
+
+func _on_ladder_area_body_entered(body):
+	if body == self:
+		canClimb = true
+
+
+func _on_ladder_area_body_exited(body):
+	if body == self:
+		canClimb = false

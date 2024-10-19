@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bhcaup6f5wm1f"]
+[gd_scene load_steps=10 format=4 uid="uid://bhcaup6f5wm1f"]
 
 [ext_resource type="Texture2D" uid="uid://bwx67xjmbjgft" path="res://Assets/kenney_background-elements-redux/Backgrounds/backgroundCastles.png" id="1_7n0kg"]
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://mbkaybra0y0l" path="res://GameObjects/key.tscn" id="5_givim"]
 [ext_resource type="PackedScene" uid="uid://tglgwgytuvrc" path="res://GameObjects/enemy.tscn" id="5_pudkw"]
 [ext_resource type="PackedScene" uid="uid://53eqjoyrp0t1" path="res://GameObjects/door.tscn" id="6_vi4uc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svi3m"]
+size = Vector2(18, 95.5)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(111, 135)
@@ -56,4 +59,13 @@ position = Vector2(-49, -225)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3.73, 3.73)
 
+[node name="LadderArea" type="Area2D" parent="."]
+position = Vector2(249, -186)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderArea"]
+position = Vector2(-1, -44.25)
+shape = SubResource("RectangleShape2D_svi3m")
+
 [connection signal="body_entered" from="lvlObjects/Key" to="Player" method="_on_key_body_entered"]
+[connection signal="body_entered" from="LadderArea" to="Player" method="_on_ladder_area_body_entered"]
+[connection signal="body_exited" from="LadderArea" to="Player" method="_on_ladder_area_body_exited"]
