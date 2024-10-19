@@ -1,7 +1,9 @@
 extends Node
 
-@onready var player = $"../Player"
-@onready var door = $"../lvlObjects/Door"
+@onready var PLAYER = $"../Player"
+@onready var DOOR = $"../lvlObjects/Door"
+@onready var GAME_KEY =  $"../lvlObjects/Key"
+@onready var PLAYER_START_POS = PLAYER.position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +12,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	# Door check
-	if player.hasKey:
-		door.process_mode = PROCESS_MODE_DISABLED
+	door_check()
+
+func reset_level():
+	PLAYER.hasKey = false
+	PLAYER.position = PLAYER_START_POS
+	GAME_KEY.process_mode = Node.PROCESS_MODE_INHERIT
+	GAME_KEY.visible = true
+
+func door_check():
+	if PLAYER.hasKey:
+		DOOR.process_mode = PROCESS_MODE_DISABLED
+	else:
+		DOOR.process_mode = PROCESS_MODE_INHERIT

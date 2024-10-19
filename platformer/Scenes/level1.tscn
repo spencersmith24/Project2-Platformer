@@ -106,6 +106,5 @@ position = Vector2(-50, -225)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3.73, 3.73)
 
-[connection signal="body_entered" from="lvlObjects/Key" to="Player" method="_on_key_body_entered"]
 [connection signal="body_entered" from="lvlObjects/LadderArea" to="Player" method="_on_ladder_area_body_entered"]
 [connection signal="body_exited" from="lvlObjects/LadderArea" to="Player" method="_on_ladder_area_body_exited"]

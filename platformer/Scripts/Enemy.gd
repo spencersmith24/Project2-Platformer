@@ -1,7 +1,6 @@
 extends Area2D
 
 @export var speed = .5
-#@onready var pathProgress = $"..".progress_ratio
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

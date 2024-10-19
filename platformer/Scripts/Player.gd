@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var START_POS = self.position
+@onready var GAME_CONTROLLER = $"../GameController"
+@onready var GAME_KEY = $"../lvlObjects/Key"
 
 var hasKey = false
 var canClimb = false
@@ -53,12 +55,18 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_key_body_entered(body):
-	if body == self:
+#func _on_key_body_entered(body):
+	#if body == self:
+		#hasKey = true
+		#$"../lvlObjects/Key".queue_free()
+
+func pick_up_key():
+	if hasKey == false:
 		hasKey = true
-		$"../lvlObjects/Key".queue_free()
+		GAME_KEY.process_mode = Node.PROCESS_MODE_DISABLED
+		GAME_KEY.visible = false
 
-
+# Ladder Climbing
 func _on_ladder_area_body_entered(body):
 	if body == self:
 		canClimb = true
@@ -68,5 +76,8 @@ func _on_ladder_area_body_exited(body):
 	if body == self:
 		canClimb = false
 
+# Hitting enemy
 func collide_with_enemy():
-	position = START_POS
+	GAME_CONTROLLER.reset_level()
+	
+	#TODO: reduce lives when hit.
