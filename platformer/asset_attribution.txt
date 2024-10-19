@@ -1,1 +1,5 @@
-Assets made by Kenny (of Kenny's Game Assets fame)
+- assets from Kenny
+	https://kenney.nl/assets/pixel-platformer
+
+- backgrounds from Kenny. 
+	https://kenney.nl/assets/background-elements-redux
