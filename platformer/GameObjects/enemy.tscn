@@ -29,6 +29,8 @@ animations = [{
 radius = 8.0
 
 [node name="Enemy" type="CharacterBody2D"]
+metadata/_edit_horizontal_guides_ = [-24.0]
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6fmd1")
