@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var hasKey = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -9,16 +10,21 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _process(delta):
 	
-	if abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk":
+	if abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk" and hasKey == false:
 		$AnimatedSprite2D.play("walk")
-	elif abs(velocity.x) < .1 and $AnimatedSprite2D.animation != "idle":
+	elif abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk" and hasKey == true:
+		$AnimatedSprite2D.play("walk_key")
+	elif abs(velocity.x) < .1 and $AnimatedSprite2D.animation != "idle" and hasKey == false:
 		$AnimatedSprite2D.play("idle")
+	elif abs(velocity.x) < .1 and $AnimatedSprite2D.animation != "idle" and hasKey == true:
+		$AnimatedSprite2D.play("idle_key")
 		
 		
 	if(velocity.x > 0):
 		$AnimatedSprite2D.scale.x = -1
 	elif (velocity.x < 0):
 		$AnimatedSprite2D.scale.x = 1
+		
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -30,7 +36,6 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("walk_L", "walk_R")
 	if direction:
 		velocity.x = direction * SPEED
@@ -38,3 +43,9 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
+
+
+func _on_key_body_entered(body):
+	if body == self:
+		hasKey = true
+		$"../lvlObjects/Key".queue_free()

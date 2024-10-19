@@ -39,20 +39,21 @@ position = Vector2(314, -221)
 [node name="Enemies" type="Node2D" parent="lvlObjects"]
 
 [node name="Enemy" parent="lvlObjects/Enemies" groups=["Enemies"] instance=ExtResource("5_pudkw")]
-position = Vector2(28, -335)
+position = Vector2(28, -333)
 
 [node name="Enemy2" parent="lvlObjects/Enemies" groups=["Enemies"] instance=ExtResource("5_pudkw")]
-position = Vector2(85, -272)
+position = Vector2(85, -269)
 
 [node name="Enemy3" parent="lvlObjects/Enemies" groups=["Enemies"] instance=ExtResource("5_pudkw")]
-position = Vector2(340, -224)
+position = Vector2(340, -221)
 
 [node name="Door" parent="lvlObjects" instance=ExtResource("6_vi4uc")]
-process_mode = 4
 position = Vector2(332, -291)
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
-position = Vector2(-41, -228)
+position = Vector2(-49, -225)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3.73, 3.73)
+
+[connection signal="body_entered" from="lvlObjects/Key" to="Player" method="_on_key_body_entered"]
