@@ -9,15 +9,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$"..".progress_ratio += delta * speed
-	
-	if $"..".progress_ratio > .5:
-		scale.x = 1
-	else:
-		scale.x = -1
+	if get_parent() is PathFollow2D:
+		follow_path(delta)
 
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		body.collide_with_enemy()
 		
+
+func follow_path(delta):
+	$"..".progress_ratio += delta * speed
+	
+	if $"..".progress_ratio > .5:
+		scale.x = 1
+	else:
+		scale.x = -1

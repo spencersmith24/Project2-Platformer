@@ -29,3 +29,7 @@ func door_check():
 		DOOR.process_mode = PROCESS_MODE_DISABLED
 	else:
 		DOOR.process_mode = PROCESS_MODE_INHERIT
+
+
+func _on_area_2d_body_entered(body):
+	reset_level()

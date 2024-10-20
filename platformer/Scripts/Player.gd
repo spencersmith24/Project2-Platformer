@@ -37,7 +37,6 @@ func _process(delta):
 	elif (velocity.x < 0):
 		$AnimatedSprite2D.scale.x = 1
 		
-		
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -50,10 +49,8 @@ func _physics_process(delta):
 		num_jumps += 1
 	elif Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
 	if is_on_floor():
 		num_jumps = 0
-	print(num_jumps)
 	
 	# Handle Climb
 	if Input.is_action_pressed("climb") and canClimb:
