@@ -3,11 +3,18 @@ extends CharacterBody2D
 @onready var START_POS = self.position
 @onready var GAME_CONTROLLER = $"../GameController"
 @onready var GAME_KEY = $"../lvlObjects/Key"
+@onready var GAME_BREAD = $"../lvlObjects/DJBread"
+
+const SPEED = 200.0
+
+var extra_jump = false
+
+var num_jumps = 0
 
 var hasKey = false
 var canClimb = false
 
-const SPEED = 200.0
+
 const JUMP_VELOCITY = -350.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -38,8 +45,15 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and num_jumps < 1 and extra_jump == true:
 		velocity.y = JUMP_VELOCITY
+		num_jumps += 1
+	elif Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		
+	if is_on_floor():
+		num_jumps = 0
+	print(num_jumps)
 	
 	# Handle Climb
 	if Input.is_action_pressed("climb") and canClimb:
@@ -54,17 +68,16 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-
-#func _on_key_body_entered(body):
-	#if body == self:
-		#hasKey = true
-		#$"../lvlObjects/Key".queue_free()
-
 func pick_up_key():
 	if hasKey == false:
 		hasKey = true
 		GAME_KEY.process_mode = Node.PROCESS_MODE_DISABLED
 		GAME_KEY.visible = false
+
+func pick_up_bread():
+	extra_jump = true
+	GAME_BREAD.process_mode = Node.PROCESS_MODE_DISABLED
+	GAME_BREAD.visible = false
 
 # Ladder Climbing
 func _on_ladder_area_body_entered(body):
