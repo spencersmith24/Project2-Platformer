@@ -1,0 +1,16 @@
+TODO:
+	
+	global:
+	- make it so the spikes kill you
+	- add music
+	- add sfx
+	
+	for level 1:
+	- create the rest of the level, utilizing the double jump
+	
+	for level 2: 
+	- introduce some sort of attack ability...
+		- fire flower type beat
+		- squash enemies
+		- dash into them to send flying
+	- maybe introduce a new enemy?
