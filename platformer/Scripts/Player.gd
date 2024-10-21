@@ -11,8 +11,9 @@ var extra_jump = false
 
 var num_jumps = 0
 
-var hasKey = false
-var canClimb = false
+var has_key = false
+var has_flag = true
+var can_climb = false
 
 
 const JUMP_VELOCITY = -350.0
@@ -22,13 +23,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.15
 
 func _process(delta):
 	
-	if abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk" and hasKey == false:
+	if abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk" and has_key == false:
 		$AnimatedSprite2D.play("walk")
-	elif abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk" and hasKey == true:
+	elif abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk" and has_key == true:
 		$AnimatedSprite2D.play("walk_key")
-	elif abs(velocity.x) < .1 and $AnimatedSprite2D.animation != "idle" and hasKey == false:
+	elif abs(velocity.x) < .1 and $AnimatedSprite2D.animation != "idle" and has_key == false:
 		$AnimatedSprite2D.play("idle")
-	elif abs(velocity.x) < .1 and $AnimatedSprite2D.animation != "idle" and hasKey == true:
+	elif abs(velocity.x) < .1 and $AnimatedSprite2D.animation != "idle" and has_key == true:
 		$AnimatedSprite2D.play("idle_key")
 		
 		
@@ -53,7 +54,7 @@ func _physics_process(delta):
 		num_jumps = 0
 	
 	# Handle Climb
-	if Input.is_action_pressed("climb") and canClimb:
+	if Input.is_action_pressed("climb") and can_climb:
 		velocity.y = SPEED * -.5
 
 	# Get the input direction and handle the movement/deceleration.
@@ -66,8 +67,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func pick_up_key():
-	if hasKey == false:
-		hasKey = true
+	if has_key == false:
+		has_key = true
 		GAME_KEY.process_mode = Node.PROCESS_MODE_DISABLED
 		GAME_KEY.visible = false
 
@@ -79,12 +80,12 @@ func pick_up_bread():
 # Ladder Climbing
 func _on_ladder_area_body_entered(body):
 	if body == self:
-		canClimb = true
+		can_climb = true
 
 
 func _on_ladder_area_body_exited(body):
 	if body == self:
-		canClimb = false
+		can_climb = false
 
 # Hitting enemy
 func collide_with_enemy():
