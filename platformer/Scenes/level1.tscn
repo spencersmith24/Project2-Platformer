@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://bhcaup6f5wm1f"]
 
-[ext_resource type="Texture2D" uid="uid://bwx67xjmbjgft" path="res://Assets/kenney_background-elements-redux/Backgrounds/backgroundCastles.png" id="1_7n0kg"]
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
+[ext_resource type="Texture2D" uid="uid://ctn6f3ik04y3q" path="res://Assets/kenney_background-elements-redux/Backgrounds/backgroundForest.png" id="2_imdnw"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="3_okkwb"]
 [ext_resource type="TileSet" uid="uid://mliyyuu4vpdo" path="res://Assets/prototyping_assets/prototyping_tile_set.tres" id="3_pn57w"]
 [ext_resource type="Texture2D" uid="uid://djixbcevho1yb" path="res://Concept Art/lvl1-concept.png" id="4_rs0j7"]
@@ -40,16 +40,20 @@ position = Vector2(111, 135)
 script = ExtResource("3_okkwb")
 
 [node name="Background" type="Node2D" parent="."]
+position = Vector2(0, 2)
+metadata/_edit_group_ = true
 
-[node name="BackgroundCastles" type="Sprite2D" parent="Background"]
-texture_repeat = 2
-position = Vector2(210, -242)
-texture = ExtResource("1_7n0kg")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 
-[node name="BackgroundCastles2" type="Sprite2D" parent="Background"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2(111, 135)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="BackgroundCastles" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
-position = Vector2(1234, -242)
-texture = ExtResource("1_7n0kg")
+position = Vector2(-305, -830)
+texture = ExtResource("2_imdnw")
+centered = false
 
 [node name="BtmBndry" type="Area2D" parent="."]
 position = Vector2(0, -56)
@@ -80,11 +84,13 @@ position = Vector2(0, -6)
 curve = SubResource("Curve2D_pk883")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="lvlObjects/Enemies/Enemy1Path"]
-position = Vector2(20, -323)
+position = Vector2(40.5, -323)
+progress = 20.5
 rotates = false
 
 [node name="Enemy" parent="lvlObjects/Enemies/Enemy1Path/PathFollow2D" instance=ExtResource("5_pudkw")]
 position = Vector2(0, -4)
+speed = 0.55
 
 [node name="Enemy2Path" type="Path2D" parent="lvlObjects/Enemies"]
 position = Vector2(0, 1)
