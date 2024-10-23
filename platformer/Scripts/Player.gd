@@ -1,27 +1,26 @@
 extends CharacterBody2D
 
+const SPEED = 200.0
+const JUMP_VELOCITY = -350.0
+
 @onready var START_POS = self.position
 @onready var GAME_CONTROLLER = $"../GameController"
 @onready var GAME_KEY = $"../lvlObjects/Key"
 @onready var GAME_BREAD = $"../lvlObjects/DJBread"
+@onready var GAME_FLAG = $"../lvlObjects/Flag"
 
-const SPEED = 200.0
+# These are exports for testing reasons
+@export var has_key = false
+@export var has_flag = false
 
-var extra_jump = false
-
-var num_jumps = 0
-
-var has_key = false
-var has_flag = true
 var can_climb = false
-
-
-const JUMP_VELOCITY = -350.0
+var extra_jump = false
+var num_jumps = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.15
 
-func _process(delta):
+func _process(_delta):
 	
 	if abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk" and has_key == false:
 		$AnimatedSprite2D.play("walk")
@@ -66,16 +65,23 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+
+# Pick stuff up
 func pick_up_key():
 	if has_key == false:
 		has_key = true
-		GAME_KEY.process_mode = Node.PROCESS_MODE_DISABLED
+		GAME_KEY.call_deferred("set_disable_mode", true)
 		GAME_KEY.visible = false
 
 func pick_up_bread():
 	extra_jump = true
-	GAME_BREAD.process_mode = Node.PROCESS_MODE_DISABLED
+	GAME_BREAD.call_deferred("set_disable_mode", true)
 	GAME_BREAD.visible = false
+
+func pick_up_flag():
+	has_flag = true
+	GAME_FLAG.call_deferred("set_disable_mode", true)
+	GAME_FLAG.visible = false
 
 # Ladder Climbing
 func _on_ladder_area_body_entered(body):

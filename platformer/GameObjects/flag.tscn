@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bulrfws1ce2aj"]
+[gd_scene load_steps=6 format=3 uid="uid://bulrfws1ce2aj"]
 
+[ext_resource type="Script" path="res://Scripts/flag.gd" id="1_idu87"]
 [ext_resource type="Texture2D" uid="uid://cgjbrlv1aj1q0" path="res://Assets/kenney_pixel-platformer/Tiles/tile_0111.png" id="1_s1bwo"]
 [ext_resource type="Texture2D" uid="uid://cbe2j0sqgjjfq" path="res://Assets/kenney_pixel-platformer/Tiles/tile_0112.png" id="2_seq4o"]
 
@@ -20,6 +21,7 @@ animations = [{
 }]
 
 [node name="Flag" type="Area2D"]
+script = ExtResource("1_idu87")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1lk52")
@@ -28,3 +30,5 @@ shape = SubResource("RectangleShape2D_1lk52")
 sprite_frames = SubResource("SpriteFrames_164iu")
 autoplay = "default"
 frame_progress = 0.654931
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

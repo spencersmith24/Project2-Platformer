@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	door_check()
 
 func reset_level():
@@ -31,7 +31,7 @@ func door_check():
 		DOOR.process_mode = PROCESS_MODE_INHERIT
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	reset_level()
 
 

@@ -130,17 +130,20 @@ position = Vector2(-1, -39)
 scale = Vector2(0.72, 1)
 shape = SubResource("RectangleShape2D_svi3m")
 
-[node name="FlagArea" type="Area2D" parent="lvlObjects"]
+[node name="FlagPole" type="Area2D" parent="lvlObjects"]
 position = Vector2(-190, -462)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="lvlObjects/FlagArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvlObjects/FlagPole"]
 position = Vector2(0, -19)
 scale = Vector2(0.48, 1)
 shape = SubResource("RectangleShape2D_pap54")
 
 [node name="DJBread" parent="lvlObjects" instance=ExtResource("8_gnhq8")]
 position = Vector2(403, -285)
+
+[node name="Flag" parent="lvlObjects" instance=ExtResource("10_irpmu")]
+position = Vector2(1313, -416)
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
 position = Vector2(-25, -225)
@@ -151,10 +154,7 @@ zoom = Vector2(3.73, 3.73)
 limit_left = -190
 limit_bottom = 65
 
-[node name="Flag" parent="." instance=ExtResource("10_irpmu")]
-position = Vector2(1314, -413)
-
 [connection signal="body_entered" from="BtmBndry" to="GameController" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="lvlObjects/LadderArea" to="Player" method="_on_ladder_area_body_entered"]
 [connection signal="body_exited" from="lvlObjects/LadderArea" to="Player" method="_on_ladder_area_body_exited"]
-[connection signal="body_entered" from="lvlObjects/FlagArea" to="GameController" method="_on_flag_area_body_entered"]
+[connection signal="body_entered" from="lvlObjects/FlagPole" to="GameController" method="_on_flag_area_body_entered"]
