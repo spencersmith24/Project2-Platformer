@@ -12,9 +12,9 @@ const JUMP_VELOCITY = -350.0
 # These are exports for testing reasons
 @export var has_key = false
 @export var has_flag = false
+@export var extra_jump = false
 
 var can_climb = false
-var extra_jump = false
 var num_jumps = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -72,6 +72,7 @@ func pick_up_key():
 		has_key = true
 		GAME_KEY.call_deferred("set_disable_mode", true)
 		GAME_KEY.visible = false
+		#TODO: add unlock door sound
 
 func pick_up_bread():
 	extra_jump = true

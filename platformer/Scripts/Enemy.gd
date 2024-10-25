@@ -23,5 +23,5 @@ func follow_path(delta):
 	
 	if $"..".progress_ratio > .5:
 		scale.x = 1
-	else:
+	elif $"..".progress_ratio < .5:
 		scale.x = -1
