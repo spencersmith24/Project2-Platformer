@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://tglgwgytuvrc"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ty213"]
-[ext_resource type="Texture2D" uid="uid://bd4hfacjlxpen" path="res://Assets/prototyping_assets/Characters/character_0015.png" id="1_vojm0"]
-[ext_resource type="Texture2D" uid="uid://ctxinf44jkijf" path="res://Assets/prototyping_assets/Characters/character_0016.png" id="2_r8t3e"]
+[ext_resource type="Texture2D" uid="uid://bd4hfacjlxpen" path="res://Assets/prototype/prototyping_assets/Characters/character_0015.png" id="1_vojm0"]
+[ext_resource type="Texture2D" uid="uid://ctxinf44jkijf" path="res://Assets/prototype/prototyping_assets/Characters/character_0016.png" id="2_r8t3e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6fmd1"]
 animations = [{

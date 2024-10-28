@@ -1,8 +1,11 @@
-- assets from Kenny
-	https://kenney.nl/assets/pixel-platformer
-
 - backgrounds from Kenny. 
 	https://kenney.nl/assets/background-elements-redux
 
 - font from 1001 fonts.
 	https://www.1001fonts.com/origami-mommy-font.html
+
+- assets from itch
+	https://cainos.itch.io/pixel-art-platformer-village-props
+
+- character from itch
+	https://penzilla.itch.io/hooded-protagonist

@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -350.0
 @onready var GAME_KEY = $"../lvlObjects/Key"
 @onready var GAME_BREAD = $"../lvlObjects/DJBread"
 @onready var GAME_FLAG = $"../lvlObjects/Flag"
+@onready var anim_tree = $AnimationTree
 
 # These are exports for testing reasons
 @export var has_key = false
@@ -22,40 +23,47 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.15
 
 func _process(_delta):
 	
-	if abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk" and has_key == false:
-		$AnimatedSprite2D.play("walk")
-	elif abs(velocity.x) > .1 and $AnimatedSprite2D.animation != "walk" and has_key == true:
-		$AnimatedSprite2D.play("walk_key")
-	elif abs(velocity.x) < .1 and $AnimatedSprite2D.animation != "idle" and has_key == false:
-		$AnimatedSprite2D.play("idle")
-	elif abs(velocity.x) < .1 and $AnimatedSprite2D.animation != "idle" and has_key == true:
-		$AnimatedSprite2D.play("idle_key")
-		
-		
+	# Handle walking/idle
+	if abs(velocity.x) > .1 :
+		anim_tree['parameters/conditions/walk'] = true
+		anim_tree['parameters/conditions/idle'] = false
+	else:
+		anim_tree['parameters/conditions/idle'] = true
+		anim_tree['parameters/conditions/walk'] = false
+	
+	
 	if(velocity.x > 0):
-		$AnimatedSprite2D.scale.x = -1
+		$Sprite2D.scale.x = 1
 	elif (velocity.x < 0):
-		$AnimatedSprite2D.scale.x = 1
+		$Sprite2D.scale.x = -1
 		
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+	
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and num_jumps < 1 and extra_jump == true:
 		velocity.y = JUMP_VELOCITY
 		num_jumps += 1
+		anim_tree['parameters/conditions/jump'] = true
 	elif Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		anim_tree['parameters/conditions/jump'] = true
+	else:
+		anim_tree['parameters/conditions/jump'] = false
+	
+	if is_on_floor():
+		num_jumps = 0
+	
 	if is_on_floor():
 		num_jumps = 0
 	
 	# Handle Climb
 	if Input.is_action_pressed("climb") and can_climb:
 		velocity.y = SPEED * -.5
-
+	
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("walk_L", "walk_R")
 	if direction:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wokgixou3e57"]
 
 [ext_resource type="Script" path="res://Scripts/Diamond.gd" id="1_ipq0g"]
-[ext_resource type="Texture2D" uid="uid://4lm20mly2bnm" path="res://Assets/prototyping_assets/item/tile_0067.png" id="2_rk4ma"]
+[ext_resource type="Texture2D" uid="uid://4lm20mly2bnm" path="res://Assets/prototype/prototyping_assets/item/tile_0067.png" id="2_rk4ma"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5yvn"]
 

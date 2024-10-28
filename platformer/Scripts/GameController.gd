@@ -50,13 +50,12 @@ func flag_check():
 		HIDDEN_LAYER.collision_enabled = false
 
 
-func _on_area_2d_body_entered(_body):
-	reset_level()
-
-
 func _on_flag_area_body_entered(body):
 	if body.is_in_group("Player") and PLAYER.has_flag:
 		PLAYER.has_flag = false
 		HIDDEN_LAYER.process_mode = Node.PROCESS_MODE_INHERIT
 		HIDDEN_LAYER.visible = true
 		print("WINNER WINNER CHICKEN DINNER")
+
+func _on_btm_bndry_body_entered(body):
+	reset_level()
