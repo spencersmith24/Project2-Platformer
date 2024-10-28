@@ -61,7 +61,6 @@ position = Vector2(0, 2)
 metadata/_edit_group_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 position = Vector2(111, 135)
@@ -233,6 +232,15 @@ position = Vector2(-1, -55)
 scale = Vector2(0.72, 1)
 shape = SubResource("RectangleShape2D_svi3m")
 
+[node name="LadderArea2" type="Area2D" parent="lvlObjects"]
+position = Vector2(103, -478)
+scale = Vector2(1, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvlObjects/LadderArea2"]
+position = Vector2(-1, -55)
+scale = Vector2(0.72, 1)
+shape = SubResource("RectangleShape2D_svi3m")
+
 [node name="FlagPole" type="Area2D" parent="lvlObjects"]
 position = Vector2(-99, -589)
 metadata/_edit_group_ = true
@@ -262,4 +270,6 @@ limit_bottom = 200
 [connection signal="body_entered" from="BtmBndry" to="GameController" method="_on_btm_bndry_body_entered"]
 [connection signal="body_entered" from="lvlObjects/LadderArea" to="Player" method="_on_ladder_area_body_entered"]
 [connection signal="body_exited" from="lvlObjects/LadderArea" to="Player" method="_on_ladder_area_body_exited"]
+[connection signal="body_entered" from="lvlObjects/LadderArea2" to="Player" method="_on_ladder_area_body_entered"]
+[connection signal="body_exited" from="lvlObjects/LadderArea2" to="Player" method="_on_ladder_area_body_exited"]
 [connection signal="body_entered" from="lvlObjects/FlagPole" to="GameController" method="_on_flag_area_body_entered"]

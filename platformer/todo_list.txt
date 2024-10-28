@@ -1,11 +1,10 @@
 TODO:
 	
 	global:
-	- make it so the spikes kill you
-		DONE: used water instead
 	- add music
 	- add sfx
-	- change sprites
+	- figure out how to smooth the jump animation
+	- find backgrounds for levels that fit with sprites
 	
 	for level 1:
 	- create the rest of the level, utilizing the double jump
