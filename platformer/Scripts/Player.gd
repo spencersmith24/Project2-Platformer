@@ -11,7 +11,7 @@ const JUMP_VELOCITY = -350.0
 @onready var anim_tree = $AnimationTree
 
 # These are exports for testing reasons
-@export var can_attack = false
+@export var has_axe = false
 @export var has_flag = false
 @export var extra_jump = false
 
@@ -76,7 +76,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Handle attack
-	if Input.is_action_just_pressed("attack") and can_attack:
+	if Input.is_action_just_pressed("attack") and has_axe:
 		anim_tree.set("parameters/conditions/attack", true)
 	else:
 		anim_tree.set("parameters/conditions/attack", false)
@@ -84,9 +84,9 @@ func _physics_process(delta):
 
 
 # Pick stuff up
-func pick_up_key():
-	if can_attack == false:
-		can_attack = true
+func pick_up_axe():
+	if has_axe == false:
+		has_axe = true
 		GAME_AXE.call_deferred("set_disable_mode", true)
 		GAME_AXE.visible = false
 
@@ -115,3 +115,10 @@ func collide_with_enemy():
 	GAME_CONTROLLER.reset_level()
 	
 	#TODO: reduce lives when hit.
+
+
+func _on_attack_area_body_entered(body):
+	if body.is_in_group("Obstacles"):
+		body.process_mode = PROCESS_MODE_DISABLED
+		body.modulate.a = 0.25
+		#TODO: change it so you must attack barrier to get through

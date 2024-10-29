@@ -25,6 +25,7 @@ window/stretch/mode="canvas_items"
 
 Enemies=""
 Player=""
+Obstacles=""
 
 [input]
 

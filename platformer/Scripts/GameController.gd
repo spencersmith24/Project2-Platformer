@@ -15,11 +15,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	barrier_check()
+	#barrier_check()
 	flag_check()
 		
 func reset_level():
-	PLAYER.can_attack = false
+	PLAYER.has_axe = false
 	PLAYER.has_flag = false
 	PLAYER.extra_jump = false
 	PLAYER.position = PLAYER_START_POS
@@ -31,6 +31,9 @@ func reset_level():
 	GAME_AXE.process_mode = Node.PROCESS_MODE_INHERIT
 	GAME_AXE.visible = true
 	
+	BARRIER.process_mode = PROCESS_MODE_INHERIT
+	BARRIER.modulate.a = 1
+	
 	GAME_BREAD.process_mode = Node.PROCESS_MODE_INHERIT
 	GAME_BREAD.visible = true
 	
@@ -38,7 +41,7 @@ func reset_level():
 	GAME_FLAG.visible = true
 
 func barrier_check():
-	if PLAYER.can_attack:
+	if PLAYER.has_axe:
 		BARRIER.process_mode = PROCESS_MODE_DISABLED
 		BARRIER.modulate.a = 0.25
 	else:
