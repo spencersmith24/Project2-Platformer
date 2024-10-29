@@ -40,8 +40,11 @@ func reset_level():
 func barrier_check():
 	if PLAYER.has_key:
 		BARRIER.process_mode = PROCESS_MODE_DISABLED
+		BARRIER.modulate.a = 0.25
 	else:
 		BARRIER.process_mode = PROCESS_MODE_INHERIT
+		BARRIER.modulate.a = 1
+
 
 func flag_check():
 	if PLAYER.has_flag:

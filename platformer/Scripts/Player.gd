@@ -77,6 +77,13 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
+	
+	# Handle attack
+	if Input.is_action_just_pressed("attack"):
+		anim_tree.set("parameters/conditions/attack", true)
+	else:
+		anim_tree.set("parameters/conditions/attack", false)
+
 
 
 # Pick stuff up
