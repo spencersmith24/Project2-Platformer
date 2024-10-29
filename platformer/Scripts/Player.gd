@@ -5,13 +5,13 @@ const JUMP_VELOCITY = -350.0
 
 @onready var START_POS = self.position
 @onready var GAME_CONTROLLER = $"../GameController"
-@onready var GAME_KEY = $"../lvlObjects/Key"
+@onready var GAME_AXE = $"../lvlObjects/Axe"
 @onready var GAME_BREAD = $"../lvlObjects/DJBread"
 @onready var GAME_FLAG = $"../lvlObjects/Flag"
 @onready var anim_tree = $AnimationTree
 
 # These are exports for testing reasons
-@export var has_key = false
+@export var can_attack = false
 @export var has_flag = false
 @export var extra_jump = false
 
@@ -64,10 +64,7 @@ func _physics_process(delta):
 	
 	# Handle Climb
 	if Input.is_action_pressed("climb") and can_climb:
-		anim_tree.set("parameters/conditions/walk", true)
 		velocity.y = SPEED * -.5
-	else:
-		anim_tree.set("parameters/conditions/walk", false)
 	
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("walk_L", "walk_R")
@@ -79,7 +76,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Handle attack
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and can_attack:
 		anim_tree.set("parameters/conditions/attack", true)
 	else:
 		anim_tree.set("parameters/conditions/attack", false)
@@ -88,11 +85,10 @@ func _physics_process(delta):
 
 # Pick stuff up
 func pick_up_key():
-	if has_key == false:
-		has_key = true
-		GAME_KEY.call_deferred("set_disable_mode", true)
-		GAME_KEY.visible = false
-		#TODO: add unlock door sound
+	if can_attack == false:
+		can_attack = true
+		GAME_AXE.call_deferred("set_disable_mode", true)
+		GAME_AXE.visible = false
 
 func pick_up_bread():
 	extra_jump = true

@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="3_okkwb"]
 [ext_resource type="TileSet" uid="uid://mliyyuu4vpdo" path="res://Assets/prototype/prototyping_assets/prototyping_tile_set.tres" id="3_pn57w"]
 [ext_resource type="Texture2D" uid="uid://djixbcevho1yb" path="res://Concept Art/lvl1-concept.png" id="4_rs0j7"]
-[ext_resource type="PackedScene" uid="uid://mbkaybra0y0l" path="res://GameObjects/key.tscn" id="5_givim"]
+[ext_resource type="PackedScene" uid="uid://mbkaybra0y0l" path="res://GameObjects/axe.tscn" id="5_givim"]
 [ext_resource type="PackedScene" uid="uid://tglgwgytuvrc" path="res://GameObjects/enemy.tscn" id="5_pudkw"]
 [ext_resource type="PackedScene" uid="uid://53eqjoyrp0t1" path="res://GameObjects/barrier.tscn" id="6_vi4uc"]
 [ext_resource type="PackedScene" uid="uid://cur7cthg1wxoj" path="res://GameObjects/dj_bread.tscn" id="8_gnhq8"]
@@ -139,8 +139,8 @@ texture = ExtResource("4_rs0j7")
 
 [node name="lvlObjects" type="Node2D" parent="."]
 
-[node name="Key" parent="lvlObjects" groups=["Keys"] instance=ExtResource("5_givim")]
-position = Vector2(476, -98)
+[node name="Axe" parent="lvlObjects" groups=["Keys"] instance=ExtResource("5_givim")]
+position = Vector2(476, -103)
 
 [node name="Enemies" type="Node2D" parent="lvlObjects"]
 

@@ -2,7 +2,7 @@ extends Node
 
 @onready var PLAYER = $"../Player"
 @onready var BARRIER = $"../lvlObjects/Barrier"
-@onready var GAME_KEY =  $"../lvlObjects/Key"
+@onready var GAME_AXE =  $"../lvlObjects/Axe"
 @onready var GAME_BREAD =  $"../lvlObjects/DJBread"
 @onready var GAME_FLAG = $"../lvlObjects/Flag"
 @onready var HIDDEN_LAYER = $"../HiddenLayer"
@@ -19,7 +19,7 @@ func _process(_delta):
 	flag_check()
 		
 func reset_level():
-	PLAYER.has_key = false
+	PLAYER.can_attack = false
 	PLAYER.has_flag = false
 	PLAYER.extra_jump = false
 	PLAYER.position = PLAYER_START_POS
@@ -28,8 +28,8 @@ func reset_level():
 	HIDDEN_LAYER.visible = true
 	HIDDEN_LAYER.collision_enabled = true
 	
-	GAME_KEY.process_mode = Node.PROCESS_MODE_INHERIT
-	GAME_KEY.visible = true
+	GAME_AXE.process_mode = Node.PROCESS_MODE_INHERIT
+	GAME_AXE.visible = true
 	
 	GAME_BREAD.process_mode = Node.PROCESS_MODE_INHERIT
 	GAME_BREAD.visible = true
@@ -38,7 +38,7 @@ func reset_level():
 	GAME_FLAG.visible = true
 
 func barrier_check():
-	if PLAYER.has_key:
+	if PLAYER.can_attack:
 		BARRIER.process_mode = PROCESS_MODE_DISABLED
 		BARRIER.modulate.a = 0.25
 	else:
