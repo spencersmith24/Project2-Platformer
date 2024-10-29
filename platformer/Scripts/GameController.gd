@@ -1,7 +1,7 @@
 extends Node
 
 @onready var PLAYER = $"../Player"
-@onready var DOOR = $"../lvlObjects/Door"
+@onready var BARRIER = $"../lvlObjects/Barrier"
 @onready var GAME_KEY =  $"../lvlObjects/Key"
 @onready var GAME_BREAD =  $"../lvlObjects/DJBread"
 @onready var GAME_FLAG = $"../lvlObjects/Flag"
@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	door_check()
+	barrier_check()
 	flag_check()
 		
 func reset_level():
@@ -37,11 +37,11 @@ func reset_level():
 	GAME_FLAG.process_mode = Node.PROCESS_MODE_INHERIT
 	GAME_FLAG.visible = true
 
-func door_check():
+func barrier_check():
 	if PLAYER.has_key:
-		DOOR.process_mode = PROCESS_MODE_DISABLED
+		BARRIER.process_mode = PROCESS_MODE_DISABLED
 	else:
-		DOOR.process_mode = PROCESS_MODE_INHERIT
+		BARRIER.process_mode = PROCESS_MODE_INHERIT
 
 func flag_check():
 	if PLAYER.has_flag:

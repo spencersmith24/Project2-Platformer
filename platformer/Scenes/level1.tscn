@@ -1,14 +1,14 @@
 [gd_scene load_steps=20 format=4 uid="uid://bhcaup6f5wm1f"]
 
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
-[ext_resource type="Texture2D" uid="uid://ctn6f3ik04y3q" path="res://Assets/kenney_background-elements-redux/Backgrounds/backgroundForest.png" id="2_imdnw"]
-[ext_resource type="FontFile" uid="uid://b8x27q8262283" path="res://Assets/origami-mommy/origa___.ttf" id="3_gut3b"]
+[ext_resource type="Texture2D" uid="uid://ctn6f3ik04y3q" path="res://Assets/Background/kenney_background-elements-redux/Backgrounds/backgroundForest.png" id="2_imdnw"]
+[ext_resource type="FontFile" uid="uid://b8x27q8262283" path="res://Assets/Font/origami-mommy/origa___.ttf" id="3_gut3b"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="3_okkwb"]
 [ext_resource type="TileSet" uid="uid://mliyyuu4vpdo" path="res://Assets/prototype/prototyping_assets/prototyping_tile_set.tres" id="3_pn57w"]
 [ext_resource type="Texture2D" uid="uid://djixbcevho1yb" path="res://Concept Art/lvl1-concept.png" id="4_rs0j7"]
 [ext_resource type="PackedScene" uid="uid://mbkaybra0y0l" path="res://GameObjects/key.tscn" id="5_givim"]
 [ext_resource type="PackedScene" uid="uid://tglgwgytuvrc" path="res://GameObjects/enemy.tscn" id="5_pudkw"]
-[ext_resource type="PackedScene" uid="uid://53eqjoyrp0t1" path="res://GameObjects/door.tscn" id="6_vi4uc"]
+[ext_resource type="PackedScene" uid="uid://53eqjoyrp0t1" path="res://GameObjects/barrier.tscn" id="6_vi4uc"]
 [ext_resource type="PackedScene" uid="uid://cur7cthg1wxoj" path="res://GameObjects/dj_bread.tscn" id="8_gnhq8"]
 [ext_resource type="PackedScene" uid="uid://bulrfws1ce2aj" path="res://GameObjects/flag.tscn" id="10_irpmu"]
 
@@ -217,9 +217,9 @@ position = Vector2(-5.5481, 19)
 rotation = -3.14159
 speed = 0.2
 
-[node name="Door" parent="lvlObjects" instance=ExtResource("6_vi4uc")]
-position = Vector2(461, -217)
-scale = Vector2(0.833, 1.4)
+[node name="Barrier" parent="lvlObjects" instance=ExtResource("6_vi4uc")]
+position = Vector2(450, -214)
+scale = Vector2(1, 1)
 
 [node name="LadderArea" type="Area2D" parent="lvlObjects"]
 position = Vector2(296, -41)

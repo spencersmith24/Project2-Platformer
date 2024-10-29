@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://53eqjoyrp0t1"]
+
+[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="1_18bdc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4uj5"]
+size = Vector2(45.6182, 44)
+
+[node name="Barrier" type="StaticBody2D"]
+scale = Vector2(0.833, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_18bdc")
+region_enabled = true
+region_rect = Rect2(873, 20, 45, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.78886e-07, 0)
+shape = SubResource("RectangleShape2D_d4uj5")
