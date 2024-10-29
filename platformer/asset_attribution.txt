@@ -1,5 +1,5 @@
-- backgrounds from Kenny. 
-	https://kenney.nl/assets/background-elements-redux
+- backgrounds from itch. 
+	https://free-game-assets.itch.io/free-horizontal-game-backgrounds
 
 - font from 1001 fonts.
 	https://www.1001fonts.com/origami-mommy-font.html
