@@ -25,11 +25,11 @@ func _process(_delta):
 	
 	# Handle walking/idle
 	if abs(velocity.x) > .1 :
-		anim_tree['parameters/conditions/walk'] = true
-		anim_tree['parameters/conditions/idle'] = false
+		anim_tree.set("parameters/conditions/idle", false)
+		anim_tree.set("parameters/conditions/walk", true)
 	else:
-		anim_tree['parameters/conditions/idle'] = true
-		anim_tree['parameters/conditions/walk'] = false
+		anim_tree.set("parameters/conditions/idle", true)
+		anim_tree.set("parameters/conditions/walk", false)
 	
 	
 	if(velocity.x > 0):
@@ -44,15 +44,17 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and num_jumps < 1 and extra_jump == true:
-		velocity.y = JUMP_VELOCITY
-		num_jumps += 1
-		anim_tree['parameters/conditions/jump'] = true
-	elif Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		anim_tree['parameters/conditions/jump'] = true
+	if Input.is_action_just_pressed("jump"):
+		anim_tree.set("parameters/conditions/jump", false)
+		if is_on_floor() or (num_jumps < 1 and extra_jump):
+			velocity.y = JUMP_VELOCITY
+			anim_tree.set("parameters/conditions/jump", true)
+			num_jumps += 1 if not is_on_floor() else 0
+		else:
+			anim_tree.set("parameters/conditions/jump", false)
 	else:
-		anim_tree['parameters/conditions/jump'] = false
+		anim_tree.set("parameters/conditions/jump", false)
+
 	
 	if is_on_floor():
 		num_jumps = 0
@@ -62,7 +64,10 @@ func _physics_process(delta):
 	
 	# Handle Climb
 	if Input.is_action_pressed("climb") and can_climb:
+		anim_tree.set("parameters/conditions/walk", true)
 		velocity.y = SPEED * -.5
+	else:
+		anim_tree.set("parameters/conditions/walk", false)
 	
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("walk_L", "walk_R")

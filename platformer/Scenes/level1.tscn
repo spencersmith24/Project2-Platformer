@@ -56,17 +56,14 @@ position = Vector2(111, 135)
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("3_okkwb")
 
-[node name="Background" type="Node2D" parent="."]
-position = Vector2(0, 2)
-metadata/_edit_group_ = true
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(111, 135)
 motion_mirroring = Vector2(1024, 0)
 
-[node name="BackgroundCastles" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+[node name="BackgroundCastles" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
 position = Vector2(-305, -830)
 texture = ExtResource("2_imdnw")
@@ -251,7 +248,7 @@ scale = Vector2(0.48, 1)
 shape = SubResource("RectangleShape2D_pap54")
 
 [node name="DJBread" parent="lvlObjects" instance=ExtResource("8_gnhq8")]
-position = Vector2(516, -206)
+position = Vector2(213, -175)
 
 [node name="Flag" parent="lvlObjects" instance=ExtResource("10_irpmu")]
 position = Vector2(1474, -333)

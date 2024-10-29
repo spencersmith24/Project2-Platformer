@@ -119,14 +119,15 @@ advance_mode = 2
 advance_condition = &"walk"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5x7fr"]
+states/Start/position = Vector2(202, 100)
 states/idle/node = SubResource("AnimationNodeAnimation_2sxjx")
 states/idle/position = Vector2(326, 100)
 states/jump/node = SubResource("AnimationNodeAnimation_iy26a")
-states/jump/position = Vector2(431.039, 265)
+states/jump/position = Vector2(326, 236)
 states/walk/node = SubResource("AnimationNodeAnimation_iqnjh")
-states/walk/position = Vector2(526.039, 100)
+states/walk/position = Vector2(562.039, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_wxdbu"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_sj72n"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_i4fth"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_jlirs"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_j6vkh"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_kxk1u"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_h24qy")]
-graph_offset = Vector2(-274.961, 36)
+graph_offset = Vector2(-431.961, 3.324)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_4o8yn")
