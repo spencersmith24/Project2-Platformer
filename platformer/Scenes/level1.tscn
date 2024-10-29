@@ -248,7 +248,7 @@ scale = Vector2(0.48, 1)
 shape = SubResource("RectangleShape2D_pap54")
 
 [node name="DJBread" parent="lvlObjects" instance=ExtResource("8_gnhq8")]
-position = Vector2(213, -175)
+position = Vector2(493, -204)
 
 [node name="Flag" parent="lvlObjects" instance=ExtResource("10_irpmu")]
 position = Vector2(1474, -333)
