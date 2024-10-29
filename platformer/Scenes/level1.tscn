@@ -64,19 +64,19 @@ position = Vector2(111, 135)
 script = ExtResource("3_okkwb")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
-scale = Vector2(0.5, 0.75)
-transform = Transform2D(0.5, 0, 0, 0.75, 0, 0)
+offset = Vector2(0, -75)
+scale = Vector2(0.6, 1.2)
+transform = Transform2D(0.6, 0, 0, 1.2, 0, -75)
+follow_viewport_scale = 0.1
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
-position = Vector2(26, -20)
-scale = Vector2(2, 2)
+motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Sky"]
 texture = ExtResource("12_mat8a")
 
 [node name="Clouds_1" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
-position = Vector2(26, -20)
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 0)
 
@@ -84,7 +84,6 @@ motion_mirroring = Vector2(1920, 0)
 texture = ExtResource("13_axkkj")
 
 [node name="Clouds_2" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
-position = Vector2(26, -20)
 motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(1920, 0)
 
@@ -92,7 +91,6 @@ motion_mirroring = Vector2(1920, 0)
 texture = ExtResource("14_m78qa")
 
 [node name="Rocks" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
-position = Vector2(26, -20)
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1920, 0)
 
@@ -100,7 +98,6 @@ motion_mirroring = Vector2(1920, 0)
 texture = ExtResource("15_2mrna")
 
 [node name="Plant" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
-position = Vector2(26, -20)
 motion_scale = Vector2(0.99, 0.99)
 motion_mirroring = Vector2(1920, 0)
 
@@ -108,7 +105,6 @@ motion_mirroring = Vector2(1920, 0)
 texture = ExtResource("16_nlo5y")
 
 [node name="Ground_1" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
-position = Vector2(26, -20)
 motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1920, 0)
 
@@ -116,7 +112,6 @@ motion_mirroring = Vector2(1920, 0)
 texture = ExtResource("17_lkx5o")
 
 [node name="Ground_2" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
-position = Vector2(26, -20)
 motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(1920, 0)
 
@@ -124,7 +119,6 @@ motion_mirroring = Vector2(1920, 0)
 texture = ExtResource("18_q6a0d")
 
 [node name="Ground_3" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
-position = Vector2(26, -20)
 motion_scale = Vector2(0.9, 0.9)
 motion_mirroring = Vector2(1920, 0)
 
@@ -136,7 +130,7 @@ tile_map_data = PackedByteArray("AAAEAPv/AQAAAAAAAAAFAPv/AQABAAAAAAAGAPv/AQABAAA
 tile_set = ExtResource("3_pn57w")
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD0/+D/AAALAAUAAAALAPH/AQAAAAEAAAALAPL/AQAAAAEAAAALAPP/AQAAAAEAAAALAPT/AQAAAAEAAAAQAPX/AQACAAEAAAAQAPT/AQACAAEAAAAQAPP/AQACAAEAAAAQAPL/AQACAAEAAAAQAPH/AQACAAEAAAAMAPH/AQABAAEAAAANAPH/AQABAAEAAAAOAPH/AQABAAEAAAAPAPH/AQABAAEAAAAPAPL/AQABAAEAAAAPAPP/AQABAAEAAAAPAPT/AQABAAEAAAAPAPX/AQABAAEAAAAOAPX/AQABAAEAAAANAPX/AQABAAEAAAANAPT/AQABAAEAAAAMAPT/AQABAAEAAAAMAPP/AQABAAEAAAAMAPL/AQABAAEAAAANAPL/AQABAAEAAAAOAPL/AQABAAEAAAANAPP/AQABAAEAAAAOAPP/AQABAAEAAAAOAPT/AQABAAEAAAA=")
+tile_map_data = PackedByteArray("AAALAPH/AQAAAAEAAAALAPL/AQAAAAEAAAALAPP/AQAAAAEAAAALAPT/AQAAAAEAAAAQAPX/AQACAAEAAAAQAPT/AQACAAEAAAAQAPP/AQACAAEAAAAQAPL/AQACAAEAAAAQAPH/AQACAAEAAAAMAPH/AQABAAEAAAANAPH/AQABAAEAAAAOAPH/AQABAAEAAAAPAPH/AQABAAEAAAAPAPL/AQABAAEAAAAPAPP/AQABAAEAAAAPAPT/AQABAAEAAAAPAPX/AQABAAEAAAAOAPX/AQABAAEAAAANAPX/AQABAAEAAAANAPT/AQABAAEAAAAMAPT/AQABAAEAAAAMAPP/AQABAAEAAAAMAPL/AQABAAEAAAANAPL/AQABAAEAAAAOAPL/AQABAAEAAAANAPP/AQABAAEAAAAOAPP/AQABAAEAAAAOAPT/AQABAAEAAAA=")
 tile_set = ExtResource("3_pn57w")
 
 [node name="BtmBndry" type="Area2D" parent="."]
@@ -174,23 +168,11 @@ offset_top = 517.0
 offset_right = 697.0
 offset_bottom = 652.0
 scale = Vector2(0.425456, 0.425456)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_gut3b")
 theme_override_font_sizes/font_size = 20
 text = "Press 'space' twice to double jump!"
-autowrap_mode = 2
-
-[node name="Flag_Msg" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 1530.0
-offset_top = 413.0
-offset_right = 1640.0
-offset_bottom = 502.0
-scale = Vector2(0.425456, 0.425456)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_gut3b")
-theme_override_font_sizes/font_size = 20
-text = "Now go return the flag!"
 autowrap_mode = 2
 
 [node name="Lvl1-concept" type="Sprite2D" parent="."]
@@ -317,13 +299,13 @@ position = Vector2(493, -204)
 position = Vector2(1474, -333)
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
-position = Vector2(-28, -180)
+position = Vector2(-37, -178)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3.73, 3.73)
 limit_left = -55
-limit_top = -600
+limit_top = -700
 limit_right = 1620
 limit_bottom = 200
 
