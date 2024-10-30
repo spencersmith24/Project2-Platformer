@@ -405,6 +405,7 @@ position = Vector2(1484, -335)
 
 [node name="Board" parent="lvlObjects" instance=ExtResource("18_8g3ln")]
 position = Vector2(0, -189)
+text = "We need our pumpkin back so we can make stew. Use 'A' and 'D' to move, 'Space' to jump. If you find a tool,  press 'E' to use it. Please go get our pumpkin!- The Village"
 
 [node name="Market" parent="lvlObjects" instance=ExtResource("19_atr5o")]
 position = Vector2(-112, -591)
