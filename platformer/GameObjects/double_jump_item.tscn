@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cur7cthg1wxoj"]
+
+[ext_resource type="Script" path="res://Scripts/dj_bread.gd" id="1_ks8ie"]
+[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="2_cceal"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8riaf"]
+radius = 9.0
+
+[node name="DoubleJumpItem" type="Area2D"]
+script = ExtResource("1_ks8ie")
+
+[node name="Sprite" type="Node2D" parent="."]
+position = Vector2(2, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+modulate = Color(0.534271, 0.706241, 0.524335, 1)
+texture = ExtResource("2_cceal")
+region_enabled = true
+region_rect = Rect2(748, 361, 8, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite"]
+modulate = Color(0.533333, 0.878431, 0.52549, 1)
+position = Vector2(-3, 1)
+texture = ExtResource("2_cceal")
+region_enabled = true
+region_rect = Rect2(748, 361, 8, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8riaf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
