@@ -16,11 +16,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#barrier_check()
-	flag_check()
+	obj_check()
 		
 func reset_level():
 	PLAYER.has_axe = false
-	PLAYER.has_flag = false
+	PLAYER.has_obj = false
 	PLAYER.extra_jump = false
 	PLAYER.position = PLAYER_START_POS
 	
@@ -49,8 +49,8 @@ func barrier_check():
 		BARRIER.modulate.a = 1
 
 
-func flag_check():
-	if PLAYER.has_flag:
+func obj_check():
+	if PLAYER.has_obj:
 		HIDDEN_LAYER.process_mode = Node.PROCESS_MODE_DISABLED
 		HIDDEN_LAYER.visible = false
 		HIDDEN_LAYER.collision_enabled = false

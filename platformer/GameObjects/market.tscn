@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://f1jbj3k2a3ww"]
+
+[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="1_0ddyk"]
+[ext_resource type="Script" path="res://Scripts/market.gd" id="1_6by8m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jtvv"]
+size = Vector2(86, 40)
+
+[node name="Market" type="Area2D"]
+script = ExtResource("1_6by8m")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Shelf" type="Sprite2D" parent="Sprites"]
+texture = ExtResource("1_0ddyk")
+region_enabled = true
+region_rect = Rect2(391, 383, 85, 33)
+
+[node name="Fruits" type="Sprite2D" parent="Sprites"]
+position = Vector2(-12, -8)
+texture = ExtResource("1_0ddyk")
+region_enabled = true
+region_rect = Rect2(396, 361, 51, 13)
+
+[node name="Roof" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -43)
+texture = ExtResource("1_0ddyk")
+region_enabled = true
+region_rect = Rect2(387, 320, 90, 28)
+
+[node name="L_Post" type="Sprite2D" parent="Sprites"]
+position = Vector2(-54, -27)
+texture = ExtResource("1_0ddyk")
+region_enabled = true
+region_rect = Rect2(483, 329, 20, 87)
+
+[node name="R_Post" type="Sprite2D" parent="Sprites"]
+position = Vector2(54, -27)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_0ddyk")
+region_enabled = true
+region_rect = Rect2(483, 329, 20, 87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_1jtvv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

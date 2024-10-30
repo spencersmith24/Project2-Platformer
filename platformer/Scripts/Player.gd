@@ -12,7 +12,7 @@ const JUMP_VELOCITY = -350.0
 
 # These are exports for testing reasons
 @export var has_axe = false
-@export var has_flag = false
+@export var has_obj = false
 @export var extra_jump = false
 
 var can_climb = false
@@ -95,8 +95,8 @@ func pick_up_bread():
 	GAME_DJ.call_deferred("set_disable_mode", true)
 	GAME_DJ.visible = false
 
-func pick_up_flag():
-	has_flag = true
+func pick_up_obj():
+	has_obj = true
 	GAME_OBJ.call_deferred("set_disable_mode", true)
 	GAME_OBJ.visible = false
 

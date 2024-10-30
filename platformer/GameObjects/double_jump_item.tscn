@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cur7cthg1wxoj"]
 
-[ext_resource type="Script" path="res://Scripts/dj_bread.gd" id="1_ks8ie"]
+[ext_resource type="Script" path="res://Scripts/double_jump_item.gd" id="1_ks8ie"]
 [ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="2_cceal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8riaf"]
