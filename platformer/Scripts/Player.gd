@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -350.0
 @onready var START_POS = self.position
 @onready var GAME_CONTROLLER = $"../GameController"
 @onready var GAME_AXE = $"../lvlObjects/Axe"
-@onready var GAME_BREAD = $"../lvlObjects/DJBread"
+@onready var GAME_DJ = $"../lvlObjects/DoubleJumpItem"
 @onready var GAME_OBJ = $"../lvlObjects/Pumpkin"
 @onready var anim_tree = $AnimationTree
 
@@ -92,8 +92,8 @@ func pick_up_axe():
 
 func pick_up_bread():
 	extra_jump = true
-	GAME_BREAD.call_deferred("set_disable_mode", true)
-	GAME_BREAD.visible = false
+	GAME_DJ.call_deferred("set_disable_mode", true)
+	GAME_DJ.visible = false
 
 func pick_up_flag():
 	has_flag = true

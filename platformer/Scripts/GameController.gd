@@ -3,7 +3,7 @@ extends Node
 @onready var PLAYER = $"../Player"
 @onready var BARRIER = $"../lvlObjects/Barrier"
 @onready var GAME_AXE =  $"../lvlObjects/Axe"
-@onready var GAME_BREAD =  $"../lvlObjects/DJBread"
+@onready var GAME_DJ =  $"../lvlObjects/DoubleJumpItem"
 @onready var GAME_OBJ = $"../lvlObjects/Pumpkin"
 @onready var HIDDEN_LAYER = $"../TileMapLayers/HiddenLayer"
 @onready var PLAYER_START_POS = PLAYER.position
@@ -34,8 +34,8 @@ func reset_level():
 	BARRIER.process_mode = PROCESS_MODE_INHERIT
 	BARRIER.modulate.a = 1
 	
-	GAME_BREAD.process_mode = Node.PROCESS_MODE_INHERIT
-	GAME_BREAD.visible = true
+	GAME_DJ.process_mode = Node.PROCESS_MODE_INHERIT
+	GAME_DJ.visible = true
 	
 	GAME_OBJ.process_mode = Node.PROCESS_MODE_INHERIT
 	GAME_OBJ.visible = true

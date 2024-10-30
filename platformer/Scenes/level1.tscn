@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bhcaup6f5wm1f"]
+[gd_scene load_steps=30 format=4 uid="uid://bhcaup6f5wm1f"]
 
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
 [ext_resource type="FontFile" uid="uid://b8x27q8262283" path="res://Assets/Font/origami-mommy/origa___.ttf" id="3_gut3b"]
@@ -18,6 +18,116 @@
 [ext_resource type="Texture2D" uid="uid://clcjujlfx04st" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_1.png" id="17_lkx5o"]
 [ext_resource type="Texture2D" uid="uid://wjftun1av6h0" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_2.png" id="18_q6a0d"]
 [ext_resource type="Texture2D" uid="uid://cr5s78266uajn" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_3.png" id="19_xhlxa"]
+
+[sub_resource type="Animation" id="Animation_qj8h3"]
+resource_name = "bounce"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.5, 1, 0.5),
+"update": 0,
+"values": [Vector2(493, -204), Vector2(493, -206), Vector2(493, -204)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Axe:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.7, 1, 0.7),
+"update": 0,
+"values": [Vector2(476, -105), Vector2(476, -103), Vector2(476, -105)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Pumpkin:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1.8, 1, 0.8),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.025, 1.025), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Pumpkin:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.828197, 0.828197, 0.828197, 1), Color(1, 1, 1, 1), Color(0.827451, 0.827451, 0.827451, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5mlp6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(493, -204)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Axe:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(476, -103)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Pumpkin:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Pumpkin:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdybp"]
+_data = {
+"RESET": SubResource("Animation_5mlp6"),
+"bounce": SubResource("Animation_qj8h3")
+}
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0vs61"]
 
@@ -62,6 +172,13 @@ position = Vector2(111, 135)
 
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("3_okkwb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../lvlObjects/DoubleJumpItem")
+libraries = {
+"": SubResource("AnimationLibrary_wdybp")
+}
+autoplay = "bounce"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2(0, -75)
@@ -289,7 +406,7 @@ position = Vector2(0, -19)
 scale = Vector2(0.48, 1)
 shape = SubResource("RectangleShape2D_pap54")
 
-[node name="DJBread" parent="lvlObjects" instance=ExtResource("8_gnhq8")]
+[node name="DoubleJumpItem" parent="lvlObjects" instance=ExtResource("8_gnhq8")]
 position = Vector2(493, -204)
 
 [node name="Pumpkin" parent="lvlObjects" instance=ExtResource("10_irpmu")]
