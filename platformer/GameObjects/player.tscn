@@ -216,11 +216,13 @@ size = Vector2(16, 29)
 script = ExtResource("1_4o8yn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.695503, 0.695503, 0.695503, 1)
 texture = ExtResource("2_57f64")
 hframes = 8
 vframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_b1rbs")
 
@@ -239,6 +241,7 @@ parameters/conditions/jump = false
 parameters/conditions/walk = false
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]

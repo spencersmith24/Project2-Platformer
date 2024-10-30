@@ -378,8 +378,8 @@ rotation = -3.14159
 speed = 0.2
 
 [node name="Barrier" parent="lvlObjects" instance=ExtResource("6_vi4uc")]
-position = Vector2(450, -214)
-scale = Vector2(1, 1)
+position = Vector2(450, -223.73)
+scale = Vector2(1, 1.5)
 
 [node name="LadderArea" type="Area2D" parent="lvlObjects"]
 position = Vector2(296, -41)
