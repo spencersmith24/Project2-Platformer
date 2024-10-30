@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -350.0
 @onready var GAME_CONTROLLER = $"../GameController"
 @onready var GAME_AXE = $"../lvlObjects/Axe"
 @onready var GAME_BREAD = $"../lvlObjects/DJBread"
-@onready var GAME_FLAG = $"../lvlObjects/Flag"
+@onready var GAME_OBJ = $"../lvlObjects/Pumpkin"
 @onready var anim_tree = $AnimationTree
 
 # These are exports for testing reasons
@@ -97,8 +97,8 @@ func pick_up_bread():
 
 func pick_up_flag():
 	has_flag = true
-	GAME_FLAG.call_deferred("set_disable_mode", true)
-	GAME_FLAG.visible = false
+	GAME_OBJ.call_deferred("set_disable_mode", true)
+	GAME_OBJ.visible = false
 
 # Ladder Climbing
 func _on_ladder_area_body_entered(body):

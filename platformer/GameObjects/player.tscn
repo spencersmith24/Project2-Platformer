@@ -239,7 +239,6 @@ parameters/conditions/jump = false
 parameters/conditions/walk = false
 
 [node name="AttackArea" type="Area2D" parent="."]
-process_mode = 4
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]

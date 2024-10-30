@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tglgwgytuvrc" path="res://GameObjects/enemy.tscn" id="5_pudkw"]
 [ext_resource type="PackedScene" uid="uid://53eqjoyrp0t1" path="res://GameObjects/barrier.tscn" id="6_vi4uc"]
 [ext_resource type="PackedScene" uid="uid://cur7cthg1wxoj" path="res://GameObjects/dj_bread.tscn" id="8_gnhq8"]
-[ext_resource type="PackedScene" uid="uid://bulrfws1ce2aj" path="res://GameObjects/flag.tscn" id="10_irpmu"]
+[ext_resource type="PackedScene" uid="uid://bulrfws1ce2aj" path="res://GameObjects/pumpkin.tscn" id="10_irpmu"]
 [ext_resource type="TileSet" uid="uid://biy7optnkifw0" path="res://Assets/tile_set.tres" id="10_v7vaa"]
 [ext_resource type="Texture2D" uid="uid://chuphpovuifxo" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/sky.png" id="12_mat8a"]
 [ext_resource type="Texture2D" uid="uid://7jyerg3cql8u" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/clouds_1.png" id="13_axkkj"]
@@ -220,11 +220,11 @@ rotates = false
 [node name="Enemy_Small" parent="lvlObjects/Enemies/Enemy3Path/PathFollow2D" instance=ExtResource("14_5s5ae")]
 speed = 0.2
 
-[node name="Enemy4" parent="lvlObjects/Enemies" instance=ExtResource("5_pudkw")]
-position = Vector2(975, -331)
+[node name="Enemy4" parent="lvlObjects/Enemies" instance=ExtResource("14_5s5ae")]
+position = Vector2(975, -321)
 
 [node name="Enemy5Path" type="Path2D" parent="lvlObjects/Enemies"]
-position = Vector2(1232, -294)
+position = Vector2(1232, -283)
 curve = SubResource("Curve2D_ambvh")
 metadata/_edit_group_ = true
 
@@ -232,8 +232,7 @@ metadata/_edit_group_ = true
 position = Vector2(4, -6)
 rotates = false
 
-[node name="Enemy" parent="lvlObjects/Enemies/Enemy5Path/PathFollow2D" instance=ExtResource("5_pudkw")]
-speed = 0.7
+[node name="Enemy_Small" parent="lvlObjects/Enemies/Enemy5Path/PathFollow2D" instance=ExtResource("14_5s5ae")]
 
 [node name="Enemy6Path" type="Path2D" parent="lvlObjects/Enemies"]
 position = Vector2(130, 64)
@@ -283,8 +282,8 @@ shape = SubResource("RectangleShape2D_pap54")
 [node name="DJBread" parent="lvlObjects" instance=ExtResource("8_gnhq8")]
 position = Vector2(493, -204)
 
-[node name="Flag" parent="lvlObjects" instance=ExtResource("10_irpmu")]
-position = Vector2(1474, -333)
+[node name="Pumpkin" parent="lvlObjects" instance=ExtResource("10_irpmu")]
+position = Vector2(1484, -335)
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
 position = Vector2(-37, -178)

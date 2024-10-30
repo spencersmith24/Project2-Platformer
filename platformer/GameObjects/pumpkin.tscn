@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bulrfws1ce2aj"]
+
+[ext_resource type="Script" path="res://Scripts/flag.gd" id="1_idu87"]
+[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="2_6wfnx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_txncd"]
+radius = 16.0
+
+[node name="Pumpkin" type="Area2D"]
+script = ExtResource("1_idu87")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6wfnx")
+region_enabled = true
+region_rect = Rect2(577, 97, 30, 31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_txncd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

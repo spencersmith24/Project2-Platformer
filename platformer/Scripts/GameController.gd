@@ -4,7 +4,7 @@ extends Node
 @onready var BARRIER = $"../lvlObjects/Barrier"
 @onready var GAME_AXE =  $"../lvlObjects/Axe"
 @onready var GAME_BREAD =  $"../lvlObjects/DJBread"
-@onready var GAME_FLAG = $"../lvlObjects/Flag"
+@onready var GAME_OBJ = $"../lvlObjects/Pumpkin"
 @onready var HIDDEN_LAYER = $"../HiddenLayer"
 @onready var PLAYER_START_POS = PLAYER.position
 
@@ -37,8 +37,8 @@ func reset_level():
 	GAME_BREAD.process_mode = Node.PROCESS_MODE_INHERIT
 	GAME_BREAD.visible = true
 	
-	GAME_FLAG.process_mode = Node.PROCESS_MODE_INHERIT
-	GAME_FLAG.visible = true
+	GAME_OBJ.process_mode = Node.PROCESS_MODE_INHERIT
+	GAME_OBJ.visible = true
 
 func barrier_check():
 	if PLAYER.has_axe:
