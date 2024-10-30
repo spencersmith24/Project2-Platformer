@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://gansepbavu75"]
+
+[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="1_cjv4t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mkn3"]
+size = Vector2(74, 39)
+
+[node name="Board" type="Area2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Board" type="Sprite2D" parent="Sprites"]
+texture = ExtResource("1_cjv4t")
+region_enabled = true
+region_rect = Rect2(189, 163, 68, 61)
+
+[node name="Note1" type="Sprite2D" parent="Sprites"]
+position = Vector2(-21, -16)
+texture = ExtResource("1_cjv4t")
+region_enabled = true
+region_rect = Rect2(260, 166, 11, 15)
+
+[node name="Note2" type="Sprite2D" parent="Sprites"]
+position = Vector2(-7, -11)
+texture = ExtResource("1_cjv4t")
+region_enabled = true
+region_rect = Rect2(260, 182, 11, 15)
+
+[node name="Note3" type="Sprite2D" parent="Sprites"]
+position = Vector2(6, -15)
+texture = ExtResource("1_cjv4t")
+region_enabled = true
+region_rect = Rect2(260, 198, 11, 15)
+
+[node name="Note4" type="Sprite2D" parent="Sprites"]
+position = Vector2(20, -3)
+texture = ExtResource("1_cjv4t")
+region_enabled = true
+region_rect = Rect2(274, 166, 14, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_7mkn3")

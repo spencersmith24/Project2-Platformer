@@ -63,5 +63,5 @@ func _on_flag_area_body_entered(body):
 		HIDDEN_LAYER.visible = true
 		print("WINNER WINNER CHICKEN DINNER")
 
-func _on_btm_bndry_body_entered(body):
+func _on_btm_bndry_body_entered(_body):
 	reset_level()

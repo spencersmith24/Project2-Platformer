@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bhcaup6f5wm1f"]
+[gd_scene load_steps=31 format=4 uid="uid://bhcaup6f5wm1f"]
 
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
 [ext_resource type="FontFile" uid="uid://b8x27q8262283" path="res://Assets/Font/origami-mommy/origa___.ttf" id="3_gut3b"]
@@ -16,8 +16,60 @@
 [ext_resource type="Texture2D" uid="uid://1s3y4decdpfe" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/rocks.png" id="15_2mrna"]
 [ext_resource type="Texture2D" uid="uid://byal0n1ej2ijf" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/plant.png" id="16_nlo5y"]
 [ext_resource type="Texture2D" uid="uid://clcjujlfx04st" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_1.png" id="17_lkx5o"]
+[ext_resource type="PackedScene" uid="uid://gansepbavu75" path="res://GameObjects/board.tscn" id="18_8g3ln"]
 [ext_resource type="Texture2D" uid="uid://wjftun1av6h0" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_2.png" id="18_q6a0d"]
 [ext_resource type="Texture2D" uid="uid://cr5s78266uajn" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_3.png" id="19_xhlxa"]
+
+[sub_resource type="Animation" id="Animation_5mlp6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(493, -204)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Axe:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(476, -103)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Pumpkin:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Pumpkin:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_qj8h3"]
 resource_name = "bounce"
@@ -70,57 +122,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.828197, 0.828197, 0.828197, 1), Color(1, 1, 1, 1), Color(0.827451, 0.827451, 0.827451, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_5mlp6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(493, -204)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Axe:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(476, -103)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Pumpkin:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Pumpkin:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wdybp"]
@@ -411,6 +412,9 @@ position = Vector2(493, -204)
 
 [node name="Pumpkin" parent="lvlObjects" instance=ExtResource("10_irpmu")]
 position = Vector2(1484, -335)
+
+[node name="Board" parent="lvlObjects" instance=ExtResource("18_8g3ln")]
+position = Vector2(0, -189)
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
 position = Vector2(-37, -178)
