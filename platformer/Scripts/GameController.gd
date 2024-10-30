@@ -5,7 +5,7 @@ extends Node
 @onready var GAME_AXE =  $"../lvlObjects/Axe"
 @onready var GAME_BREAD =  $"../lvlObjects/DJBread"
 @onready var GAME_OBJ = $"../lvlObjects/Pumpkin"
-@onready var HIDDEN_LAYER = $"../HiddenLayer"
+@onready var HIDDEN_LAYER = $"../TileMapLayers/HiddenLayer"
 @onready var PLAYER_START_POS = PLAYER.position
 
 # Called when the node enters the scene tree for the first time.
