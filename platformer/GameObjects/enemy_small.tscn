@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_x6yxu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ml7nd"]
-radius = 8.0
+radius = 7.0
 height = 66.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8kfa"]

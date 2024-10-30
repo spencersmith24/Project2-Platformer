@@ -136,7 +136,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_pk883"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 20, -323, 0, 0, 0, 0, 98, -323, 0, 0, 0, 0, 20, -323)
+"points": PackedVector2Array(0, 0, 0, 0, 22, -323, 0, 0, 0, 0, 95, -323, 0, 0, 0, 0, 22, -323)
 }
 point_count = 3
 
@@ -148,7 +148,7 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_yxmg3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 307, -221, 0, 0, 0, 0, 350, -221, 0, 0, 0, 0, 307, -221)
+"points": PackedVector2Array(0, 0, 0, 0, 313, -221, 0, 0, 0, 0, 352, -221, 0, 0, 0, 0, 313, -221)
 }
 point_count = 3
 
@@ -160,7 +160,7 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_y1jj4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1254, -394, 0, 0, 0, 0, 1300, -394, 0, 0, 0, 0, 1287, -394, 0, 0, 0, 0, 1254, -394)
+"points": PackedVector2Array(0, 0, 0, 0, 1257, -394, 0, 0, 0, 0, 1300, -394, 0, 0, 0, 0, 1287, -394, 0, 0, 0, 0, 1257, -394)
 }
 point_count = 4
 
@@ -305,8 +305,37 @@ autowrap_mode = 2
 
 [node name="lvlObjects" type="Node2D" parent="."]
 
+[node name="txtObjects" type="Node2D" parent="lvlObjects"]
+
+[node name="Board" parent="lvlObjects/txtObjects" instance=ExtResource("18_8g3ln")]
+position = Vector2(-27, -189)
+text = "Please find our pumpkin, we need to make stew! 
+-The Village"
+
+[node name="Sign" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(55, -174)
+text = "Use 'a' and 'd' to move (or arrows), 'space' to jump."
+
+[node name="Sign2" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(398, -206)
+text = "Use 'e' to chop once you have an axe..."
+
+[node name="Sign3" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(531, -206)
+text = "Press 'space' twice to double jump."
+
+[node name="Sign4" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(336, -46)
+text = "Use 'w' (or up arrow) to climb."
+
 [node name="Axe" parent="lvlObjects" groups=["Keys"] instance=ExtResource("5_givim")]
 position = Vector2(476, -103)
+
+[node name="Pumpkin" parent="lvlObjects" instance=ExtResource("10_irpmu")]
+position = Vector2(1484, -335)
+
+[node name="DoubleJumpItem" parent="lvlObjects" instance=ExtResource("8_gnhq8")]
+position = Vector2(493, -204)
 
 [node name="Enemies" type="Node2D" parent="lvlObjects"]
 
@@ -317,7 +346,7 @@ curve = SubResource("Curve2D_pk883")
 metadata/_edit_group_ = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="lvlObjects/Enemies/Enemy1Path"]
-position = Vector2(40.4858, -323)
+position = Vector2(42.4907, -323)
 progress = 20.5
 rotates = false
 
@@ -341,7 +370,7 @@ curve = SubResource("Curve2D_yxmg3")
 metadata/_edit_group_ = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="lvlObjects/Enemies/Enemy3Path"]
-position = Vector2(307, -221)
+position = Vector2(313, -221)
 progress = 86.0
 rotates = false
 
@@ -368,7 +397,7 @@ curve = SubResource("Curve2D_y1jj4")
 metadata/_edit_group_ = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="lvlObjects/Enemies/Enemy6Path"]
-position = Vector2(1254, -394)
+position = Vector2(1257, -394)
 rotation = 3.14159
 rotates = false
 
@@ -398,37 +427,8 @@ position = Vector2(-1, -55)
 scale = Vector2(0.72, 1)
 shape = SubResource("RectangleShape2D_svi3m")
 
-[node name="DoubleJumpItem" parent="lvlObjects" instance=ExtResource("8_gnhq8")]
-position = Vector2(493, -204)
-
-[node name="Pumpkin" parent="lvlObjects" instance=ExtResource("10_irpmu")]
-position = Vector2(1484, -335)
-
 [node name="Market" parent="lvlObjects" instance=ExtResource("19_atr5o")]
 position = Vector2(-112, -591)
-
-[node name="txtObjects" type="Node2D" parent="lvlObjects"]
-
-[node name="Board" parent="lvlObjects/txtObjects" instance=ExtResource("18_8g3ln")]
-position = Vector2(-27, -189)
-text = "Please find our pumpkin, we need to make stew! 
--The Village"
-
-[node name="Sign" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
-position = Vector2(55, -174)
-text = "Use 'a' and 'd' to move (or arrows), 'space' to jump."
-
-[node name="Sign2" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
-position = Vector2(398, -206)
-text = "Use 'e' to chop once you have an axe..."
-
-[node name="Sign3" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
-position = Vector2(531, -206)
-text = "Press 'space' twice to double jump."
-
-[node name="Sign4" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
-position = Vector2(336, -46)
-text = "Use 'w' (or up arrow) to climb."
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
 position = Vector2(0, -180)
