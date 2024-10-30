@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bhcaup6f5wm1f"]
+[gd_scene load_steps=32 format=4 uid="uid://bhcaup6f5wm1f"]
 
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
 [ext_resource type="FontFile" uid="uid://b8x27q8262283" path="res://Assets/Font/origami-mommy/origa___.ttf" id="3_gut3b"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://wjftun1av6h0" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_2.png" id="18_q6a0d"]
 [ext_resource type="PackedScene" uid="uid://f1jbj3k2a3ww" path="res://GameObjects/market.tscn" id="19_atr5o"]
 [ext_resource type="Texture2D" uid="uid://cr5s78266uajn" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_3.png" id="19_xhlxa"]
+[ext_resource type="PackedScene" uid="uid://dq7y5144i8e0i" path="res://GameObjects/sign.tscn" id="20_ietxu"]
 
 [sub_resource type="Animation" id="Animation_5mlp6"]
 length = 0.001
@@ -403,12 +404,31 @@ position = Vector2(493, -204)
 [node name="Pumpkin" parent="lvlObjects" instance=ExtResource("10_irpmu")]
 position = Vector2(1484, -335)
 
-[node name="Board" parent="lvlObjects" instance=ExtResource("18_8g3ln")]
-position = Vector2(0, -189)
-text = "We need our pumpkin back so we can make stew. Use 'A' and 'D' to move, 'Space' to jump. If you find a tool,  press 'E' to use it. Please go get our pumpkin!- The Village"
-
 [node name="Market" parent="lvlObjects" instance=ExtResource("19_atr5o")]
 position = Vector2(-112, -591)
+
+[node name="txtObjects" type="Node2D" parent="lvlObjects"]
+
+[node name="Board" parent="lvlObjects/txtObjects" instance=ExtResource("18_8g3ln")]
+position = Vector2(-27, -189)
+text = "Please find our pumpkin, we need to make stew! 
+-The Village"
+
+[node name="Sign" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(55, -174)
+text = "Use 'a' and 'd' to move (or arrows), 'space' to jump."
+
+[node name="Sign2" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(398, -206)
+text = "Use 'e' to chop once you have an axe..."
+
+[node name="Sign3" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(531, -206)
+text = "Press 'space' twice to double jump."
+
+[node name="Sign4" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(336, -46)
+text = "Use 'w' (or up arrow) to climb."
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
 position = Vector2(0, -180)

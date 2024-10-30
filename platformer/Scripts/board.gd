@@ -1,10 +1,9 @@
 extends Area2D
 
-@export var text = "placeholder"
+@export_multiline var text : String
 
 func _process(delta):
 	$Label.text = text
-
 
 func _on_body_entered(body):
 	$Label.visible = true

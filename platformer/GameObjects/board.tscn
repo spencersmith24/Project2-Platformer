@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/board.gd" id="1_4cc71"]
 [ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="1_cjv4t"]
-[ext_resource type="FontFile" uid="uid://cvgkfcasmvwj8" path="res://Assets/Font/dumbledor/dum1/dum1.ttf" id="3_82ohc"]
+[ext_resource type="FontFile" uid="uid://bqs6genhte5l6" path="res://Assets/Font/dumbledor/dum3/dum3thin.ttf" id="3_vrcli"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mkn3"]
 size = Vector2(74, 39)
 
 [node name="Board" type="Area2D"]
 script = ExtResource("1_4cc71")
-text = ""
 metadata/_edit_group_ = true
 
 [node name="Sprites" type="Node2D" parent="."]
@@ -48,15 +47,20 @@ position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_7mkn3")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -63.0
-offset_top = -54.0
-offset_right = 1206.0
-offset_bottom = 151.0
+visible = false
+offset_left = -82.0
+offset_top = -148.0
+offset_right = 1558.0
+offset_bottom = 1012.0
 scale = Vector2(0.1, 0.1)
-theme_override_fonts/font = ExtResource("3_82ohc")
-theme_override_font_sizes/font_size = 200
-text = "PLACEHOLDER"
-autowrap_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vrcli")
+theme_override_font_sizes/font_size = 175
+text = "The quick brown fox jumps over the lazy dog."
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

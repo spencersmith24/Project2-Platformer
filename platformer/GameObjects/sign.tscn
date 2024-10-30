@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq7y5144i8e0i"]
+
+[ext_resource type="Script" path="res://Scripts/board.gd" id="1_47pld"]
+[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="1_j3qf4"]
+[ext_resource type="FontFile" uid="uid://cvgkfcasmvwj8" path="res://Assets/Font/dumbledor/dum1/dum1.ttf" id="3_lgwbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wlpx"]
+size = Vector2(20, 28)
+
+[node name="Sign" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_47pld")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sign" type="Sprite2D" parent="Sprites"]
+texture = ExtResource("1_j3qf4")
+region_enabled = true
+region_rect = Rect2(479.964, 18, 32.0356, 46)
+
+[node name="Text" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -8)
+texture = ExtResource("1_j3qf4")
+region_enabled = true
+region_rect = Rect2(519, 26, 19, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(3.08, 1)
+shape = SubResource("RectangleShape2D_5wlpx")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -82.0
+offset_top = -193.0
+offset_right = 1558.0
+offset_bottom = 1447.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/font_color = Color(0.823734, 0.861678, 0.758978, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_lgwbh")
+theme_override_font_sizes/font_size = 150
+text = "The quick brown fox jumps over the lazy dog."
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
