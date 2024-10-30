@@ -3,15 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
 [ext_resource type="FontFile" uid="uid://b8x27q8262283" path="res://Assets/Font/origami-mommy/origa___.ttf" id="3_gut3b"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="3_okkwb"]
-[ext_resource type="TileSet" uid="uid://mliyyuu4vpdo" path="res://Assets/prototype/prototyping_assets/prototyping_tile_set.tres" id="3_pn57w"]
-[ext_resource type="Texture2D" uid="uid://djixbcevho1yb" path="res://Concept Art/lvl1-concept.png" id="4_rs0j7"]
 [ext_resource type="PackedScene" uid="uid://mbkaybra0y0l" path="res://GameObjects/axe.tscn" id="5_givim"]
 [ext_resource type="PackedScene" uid="uid://tglgwgytuvrc" path="res://GameObjects/enemy.tscn" id="5_pudkw"]
 [ext_resource type="PackedScene" uid="uid://53eqjoyrp0t1" path="res://GameObjects/barrier.tscn" id="6_vi4uc"]
 [ext_resource type="PackedScene" uid="uid://cur7cthg1wxoj" path="res://GameObjects/dj_bread.tscn" id="8_gnhq8"]
 [ext_resource type="PackedScene" uid="uid://bulrfws1ce2aj" path="res://GameObjects/flag.tscn" id="10_irpmu"]
+[ext_resource type="TileSet" uid="uid://biy7optnkifw0" path="res://Assets/tile_set.tres" id="10_v7vaa"]
 [ext_resource type="Texture2D" uid="uid://chuphpovuifxo" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/sky.png" id="12_mat8a"]
 [ext_resource type="Texture2D" uid="uid://7jyerg3cql8u" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/clouds_1.png" id="13_axkkj"]
+[ext_resource type="PackedScene" uid="uid://ff3unbe8llyt" path="res://GameObjects/enemy_small.tscn" id="14_5s5ae"]
 [ext_resource type="Texture2D" uid="uid://c50k3iut0wj78" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/clouds_2.png" id="14_m78qa"]
 [ext_resource type="Texture2D" uid="uid://1s3y4decdpfe" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/rocks.png" id="15_2mrna"]
 [ext_resource type="Texture2D" uid="uid://byal0n1ej2ijf" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/plant.png" id="16_nlo5y"]
@@ -63,75 +63,75 @@ position = Vector2(111, 135)
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("3_okkwb")
 
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2(0, -75)
 scale = Vector2(0.6, 1.2)
 transform = Transform2D(0.6, 0, 0, 1.2, 0, -75)
 follow_viewport_scale = 0.1
 
-[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Sky"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 texture = ExtResource("12_mat8a")
 
-[node name="Clouds_1" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
+[node name="Clouds_1" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Clouds_1"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_1"]
 texture = ExtResource("13_axkkj")
 
-[node name="Clouds_2" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
+[node name="Clouds_2" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Clouds_2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_2"]
 texture = ExtResource("14_m78qa")
 
-[node name="Rocks" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
+[node name="Rocks" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Rocks"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Rocks"]
 texture = ExtResource("15_2mrna")
 
-[node name="Plant" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
+[node name="Plant" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.99, 0.99)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Plant"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Plant"]
 texture = ExtResource("16_nlo5y")
 
-[node name="Ground_1" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
+[node name="Ground_1" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Ground_1"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_1"]
 texture = ExtResource("17_lkx5o")
 
-[node name="Ground_2" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
+[node name="Ground_2" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Ground_2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_2"]
 texture = ExtResource("18_q6a0d")
 
-[node name="Ground_3" type="ParallaxLayer" parent="ParallaxBackground2" groups=["Background"]]
+[node name="Ground_3" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.9, 0.9)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Ground_3"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_3"]
 texture = ExtResource("19_xhlxa")
 
 [node name="LevelLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAEAPv/AQAAAAAAAAAFAPv/AQABAAAAAAAGAPv/AQABAAAAAAAHAPv/AQABAAAAAAAIAPv/AQACAAAAAAAQAPr/AQACAA4AAAALAPr/AQAAAA4AAAAMAPr/AQABAA4AAAANAPr/AQABAAwAAAAOAPr/AQABAA4AAAAPAPr/AQABAA4AAAAPAP7/AQACAAAAAAAOAP7/AQAAAAAAAAALAP//AQACAAAAAAAKAP//AQABAAAAAAATAPj/AQAEAAUAAAAXAPb/AQAEAAUAAAAbAPj/AQAEAAUAAAAeAPf/AQAEAAUAAAAhAPj/AQAEAAUAAAALAPf/AQAEAAEAAAAMAPf/AQABAAIAAAANAPf/AQABAAIAAAAOAPf/AQABAAIAAAAPAPf/AQANAAEAAAAQAPb/AQANAAEAAAAQAPX/AQACAAAAAAALAPT/AQAAAAAAAAALAPb/AQAAAAEAAAALAPX/AQAAAAEAAAAMAPT/AQABAAAAAAAPAPX/AQABAAAAAAAOAPX/AQABAAAAAAANAPT/AQACAAAAAAANAPX/AQANAAUAAAALAPH/AQAEAAEAAAAMAPH/AQABAAIAAAANAPH/AQABAAIAAAAOAPH/AQABAAIAAAAPAPH/AQABAAIAAAAQAPH/AQANAAEAAAALAPD/AQAAAAEAAAALAO//AQAAAAEAAAALAO7/AQAAAAEAAAALAO3/AQAAAAEAAAALAOz/AQAAAAEAAAALAOv/AQAAAAEAAAAQAPD/AQACAAEAAAAQAO//AQACAAEAAAAQAO7/AQACAAEAAAAQAO3/AQACAAEAAAAQAOz/AQACAAEAAAAQAOv/AQACAAEAAAATAPn/AQAEAAYAAAATAPr/AQANAAsAAAATAPv/AQAEAAYAAAATAPz/AQAEAAYAAAATAP3/AQAEAAYAAAATAP7/AQAEAAYAAAATAP//AQAEAAYAAAATAAAAAQAEAAYAAAATAAEAAQAIAAQAAAATAAIAAQAEAAYAAAAXAPf/AQAIAAQAAAAXAPj/AQAEAAYAAAAXAPn/AQAEAAYAAAAXAPr/AQAEAAYAAAAXAPv/AQAEAAYAAAAXAPz/AQAKAA4AAAAXAP3/AQAEAAYAAAAXAP7/AQAEAAYAAAAXAP//AQAEAAYAAAAXAAAAAQAEAAYAAAAXAAEAAQAEAAYAAAAXAAIAAQAEAAYAAAAbAPn/AQAEAAYAAAAbAPr/AQAEAAgAAAAbAPv/AQANAAsAAAAbAPz/AQAEAAYAAAAbAP3/AQAEAAYAAAAbAP7/AQAEAAYAAAAbAP//AQANAAsAAAAbAAAAAQAEAAYAAAAbAAEAAQAEAAYAAAAbAAIAAQAEAAYAAAAeAPj/AQAEAAYAAAAeAPn/AQAEAAYAAAAeAPr/AQAPAAoAAAAeAPv/AQAEAAYAAAAeAPz/AQAEAAYAAAAeAP3/AQAEAAgAAAAeAP7/AQAIAAQAAAAeAP//AQAEAAYAAAAeAAAAAQAEAAYAAAAeAAEAAQAEAAYAAAAeAAIAAQAEAAYAAAAhAPn/AQANAAsAAAAhAPr/AQAEAAgAAAAhAPv/AQAEAAYAAAAhAPz/AQAEAAYAAAAhAP3/AQAEAAYAAAAhAP7/AQAEAAYAAAAhAP//AQAEAAYAAAAhAAAAAQAEAAYAAAAhAAEAAQAEAAYAAAAhAAIAAQAEAAYAAAAEAPz/AQAAAAEAAAAEAP3/AQAAAAEAAAAEAP7/AQAAAAEAAAAEAP//AQAEAAoAAAAEAAAAAQAAAAEAAAAEAAEAAQAAAAEAAAAIAPz/AQACAAEAAAAIAP3/AQACAAEAAAAHAAMAAQACAAEAAAAHAAQAAQAFAAEAAAAGAAUAAQAFAAEAAAAFAAUAAQAEAAEAAAAEAAIAAQAMAAEAAAAFAAMAAQAAAAEAAAAFAAQAAQAAAAEAAAAJAP//AQAOAAUAAAAIAP7/AQACAAEAAAAIAP//AQANAAUAAAAIAAIAAQANAAEAAAAJAAEAAQABAAQAAAAKAAEAAQANAAEAAAALAAAAAQAFAAEAAAAPAPb/AQAAAAQAAAAKAAAAAQAAAAQAAAAIAAEAAQAAAAQAAAAHAAIAAQAAAAQAAAAGAAQAAQAAAAQAAAAFAAIAAQACAAQAAAAJAPv/AwAJAA4AAAAJAPz/AwAJAA8AAAAJAP3/AwAJAA8AAAAJAP7/AwAJABEAAAAOAP//AQAAAAEAAAAOAAAAAQAMAAEAAAAPAP//AQAPAAYAAAAPAAAAAQAPAAcAAAAPAAEAAQAPAAgAAAAPAAIAAQAPAAsAAAAMAPX/AQABAAEAAAAMAPb/AQABAAEAAAANAPb/AQABAAEAAAAOAPb/AQABAAEAAAAMAOv/AQABAAEAAAAMAOz/AQABAAEAAAAMAO3/AQABAAEAAAAMAO7/AQABAAEAAAAMAO//AQABAAEAAAAMAPD/AQABAAEAAAANAOv/AQABAAEAAAANAOz/AQABAAEAAAANAO3/AQABAAEAAAANAO7/AQABAAEAAAANAO//AQABAAEAAAANAPD/AQABAAEAAAAOAOv/AQABAAEAAAAOAOz/AQABAAEAAAAOAO3/AQABAAEAAAAOAO7/AQABAAEAAAAOAO//AQABAAEAAAAOAPD/AQABAAEAAAAPAOv/AQABAAEAAAAPAOz/AQABAAEAAAAPAO3/AQABAAEAAAAPAO7/AQABAAEAAAAPAO//AQABAAEAAAAPAPD/AQABAAEAAAALAOj/AQAAAAEAAAALAOn/AQAAAAEAAAALAOr/AQAAAAEAAAAMAOj/AQABAAEAAAAMAOn/AQABAAEAAAAMAOr/AQABAAEAAAANAOj/AQABAAEAAAANAOn/AQABAAEAAAANAOr/AQABAAEAAAAOAOj/AQABAAEAAAAOAOn/AQABAAEAAAAOAOr/AQABAAEAAAAPAOj/AQABAAEAAAAPAOn/AQABAAEAAAAPAOr/AQABAAEAAAAQAOj/AQACAAEAAAAQAOn/AQACAAEAAAAQAOr/AQACAAEAAAALAOX/AQAAAAEAAAALAOb/AQAAAAEAAAALAOf/AQAAAAEAAAAMAOX/AQABAAEAAAAMAOb/AQABAAEAAAAMAOf/AQABAAEAAAANAOX/AQABAAEAAAANAOb/AQABAAEAAAANAOf/AQABAAEAAAAOAOX/AQABAAEAAAAOAOb/AQABAAEAAAAOAOf/AQABAAEAAAAPAOX/AQABAAEAAAAPAOb/AQABAAEAAAAPAOf/AQABAAEAAAAQAOX/AQACAAEAAAAQAOb/AQACAAEAAAAQAOf/AQACAAEAAAAFAPz/AQALAAcAAAAFAP3/AQABAAEAAAAFAP7/AQABAAEAAAAFAP//AQABAAEAAAAFAAAAAQABAAEAAAAFAAEAAQABAAEAAAAGAPz/AQABAAEAAAAGAP3/AQABAAEAAAAGAP7/AQABAAEAAAAGAP//AQABAAEAAAAGAAAAAQAMAAYAAAAGAAEAAQABAAEAAAAHAPz/AQAMAAYAAAAHAP3/AQABAAEAAAAHAP7/AQABAAEAAAAHAP//AQABAAEAAAAHAAAAAQABAAEAAAAHAAEAAQABAAEAAAAIAAAAAQABAAEAAAAJAAAAAQABAAEAAAAGAAIAAQABAAEAAAAGAAMAAQABAAEAAAAmAPj/AQAAAAAAAAAnAPj/AQABAAAAAAAoAPj/AQABAAAAAAApAPj/AQABAAAAAAAqAPj/AQABAAAAAAArAPf/AQAAAAAAAAAtAPb/AQAAAAAAAAAuAPb/AQACAAAAAAAsAPf/AQAFAAkAAAAtAPf/AQAKAAcAAAArAPj/AQAKAAcAAAAuAPf/AQAPAAYAAAAuAPj/AQAIAAYAAAAuAPn/AQACAAEAAAAuAPr/AQACAAEAAAAuAPv/AQAFAAEAAAAtAPv/AQABAAIAAAAsAPz/AQAPAA8AAAAmAPn/AQAEAAoAAAAmAPr/AQAEAAsAAAAmAPv/AQAEAAwAAAAmAPz/AQAEAAEAAAAnAP3/AQAEAAEAAAAoAP7/AQAAAAEAAAAoAP//AQAAAAEAAAAoAAAAAQAMAAEAAAApAAAAAQAFAAEAAAApAP//AQACAAEAAAAqAP7/AQAFAAEAAAAqAP3/AQAAAAQAAAArAPz/AQAAAAQAAAApAP7/AQAAAAQAAAAqAPz/AQABAAEAAAAsAPv/AQAAAAQAAAAoAP3/AQACAAQAAAAnAPz/AQACAAQAAAArAP3/AQANAAEAAAApAP3/AQABAAEAAAApAPz/AQABAAEAAAAoAPz/AQABAAEAAAAoAPv/AQABAAEAAAAnAPv/AQABAAEAAAAnAPr/AQABAAEAAAAnAPn/AQABAAEAAAAoAPn/AQABAAEAAAAoAPr/AQABAAEAAAApAPr/AQABAAEAAAApAPv/AQABAAEAAAAqAPv/AQABAAEAAAArAPv/AQABAAEAAAArAPr/AQABAAEAAAAqAPr/AQABAAEAAAApAPn/AQABAAEAAAAqAPn/AQABAAEAAAArAPn/AQABAAEAAAAsAPr/AQABAAEAAAAsAPn/AQABAAEAAAAtAPn/AQABAAEAAAAtAPr/AQABAAEAAAAsAPj/AQABAAEAAAAtAPj/AQABAAEAAAAHAPP/AQAKAAAAAAAGAPP/AQAJAAAAAAACAPL/AQANAAEAAAACAPH/AQACAAEAAAACAPD/AQANAAgAAAACAO//AQACAAAAAAABAO//AQABAAAAAAAAAO//AQABAAAAAAD//+//AQABAAAAAAD+/+//AQABAAAAAAD7/+7/AQAAAAAAAAD9/+7/AQACAAAAAAD8/+7/AQABAAAAAAD7/+//AQAAAAEAAAD7//D/AQAAAAEAAAD7//H/AQAAAAEAAAD7//L/AQAAAAEAAAD7//P/AQAMAAEAAAD8//P/AQABAAIAAAD9//P/AQABAAIAAAD+//P/AQABAAIAAAD///P/AQAFAAEAAAAAAPL/AQABAAIAAAABAPL/AQABAAIAAAD///L/AQAAAAQAAAD9/+//AQANAAUAAAD8/+//AQAHAAYAAAD8//D/AQAHAAYAAAD9//D/AQAHAAYAAAD+//D/AQAHAAYAAAD///D/AQAHAAYAAAAAAPD/AQAHAAYAAAABAPD/AQAHAAYAAAABAPH/AQAHAAYAAAAAAPH/AQAHAAYAAAD///H/AQAHAAYAAAD+//H/AQAHAAYAAAD9//H/AQAHAAYAAAD8//H/AQAHAAYAAAD8//L/AQAHAAYAAAD9//L/AQAHAAYAAAD+//L/AQAHAAYAAAADAO//AwAJAA4AAAADAPD/AwAJABAAAAADAPH/AwAJABIAAAABAPv/AQACAAAAAAD+//v/AQAAAAAAAAD///v/AQABAAAAAAAAAPv/AQABAAAAAAD+//z/AQAAAAEAAAABAPz/AQAFAAEAAAAAAP3/AQANAAEAAAD+//3/AQAMAAEAAAD///3/AQABAAIAAAAAAPz/AQANAAcAAAD///z/AQAGAAsAAAA=")
-tile_set = ExtResource("3_pn57w")
+tile_set = ExtResource("10_v7vaa")
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAALAPH/AQAAAAEAAAALAPL/AQAAAAEAAAALAPP/AQAAAAEAAAALAPT/AQAAAAEAAAAQAPX/AQACAAEAAAAQAPT/AQACAAEAAAAQAPP/AQACAAEAAAAQAPL/AQACAAEAAAAQAPH/AQACAAEAAAAMAPH/AQABAAEAAAANAPH/AQABAAEAAAAOAPH/AQABAAEAAAAPAPH/AQABAAEAAAAPAPL/AQABAAEAAAAPAPP/AQABAAEAAAAPAPT/AQABAAEAAAAPAPX/AQABAAEAAAAOAPX/AQABAAEAAAANAPX/AQABAAEAAAANAPT/AQABAAEAAAAMAPT/AQABAAEAAAAMAPP/AQABAAEAAAAMAPL/AQABAAEAAAANAPL/AQABAAEAAAAOAPL/AQABAAEAAAANAPP/AQABAAEAAAAOAPP/AQABAAEAAAAOAPT/AQABAAEAAAA=")
-tile_set = ExtResource("3_pn57w")
+tile_set = ExtResource("10_v7vaa")
 
 [node name="BtmBndry" type="Area2D" parent="."]
 position = Vector2(0, 100)
@@ -175,13 +175,6 @@ theme_override_font_sizes/font_size = 20
 text = "Press 'space' twice to double jump!"
 autowrap_mode = 2
 
-[node name="Lvl1-concept" type="Sprite2D" parent="."]
-visible = false
-show_behind_parent = true
-position = Vector2(161, -247)
-scale = Vector2(0.36, 0.36)
-texture = ExtResource("4_rs0j7")
-
 [node name="lvlObjects" type="Node2D" parent="."]
 
 [node name="Axe" parent="lvlObjects" groups=["Keys"] instance=ExtResource("5_givim")]
@@ -190,7 +183,7 @@ position = Vector2(476, -103)
 [node name="Enemies" type="Node2D" parent="lvlObjects"]
 
 [node name="Enemy1Path" type="Path2D" parent="lvlObjects/Enemies"]
-position = Vector2(184, -101)
+position = Vector2(183, -138)
 curve = SubResource("Curve2D_pk883")
 metadata/_edit_group_ = true
 
@@ -200,11 +193,11 @@ progress = 20.5
 rotates = false
 
 [node name="Enemy" parent="lvlObjects/Enemies/Enemy1Path/PathFollow2D" instance=ExtResource("5_pudkw")]
-position = Vector2(0, -4)
+position = Vector2(24, -323)
 speed = 0.55
 
 [node name="Enemy2Path" type="Path2D" parent="lvlObjects/Enemies"]
-position = Vector2(-109, -286)
+position = Vector2(-109, -318)
 curve = SubResource("Curve2D_po2hp")
 metadata/_edit_group_ = true
 
@@ -215,7 +208,7 @@ rotates = false
 [node name="Enemy2" parent="lvlObjects/Enemies/Enemy2Path/PathFollow2D" instance=ExtResource("5_pudkw")]
 
 [node name="Enemy3Path" type="Path2D" parent="lvlObjects/Enemies"]
-position = Vector2(153, 145)
+position = Vector2(153, 124)
 curve = SubResource("Curve2D_yxmg3")
 metadata/_edit_group_ = true
 
@@ -224,14 +217,14 @@ position = Vector2(307, -221)
 progress = 86.0
 rotates = false
 
-[node name="Enemy3" parent="lvlObjects/Enemies/Enemy3Path/PathFollow2D" instance=ExtResource("5_pudkw")]
-speed = 0.3
+[node name="Enemy_Small" parent="lvlObjects/Enemies/Enemy3Path/PathFollow2D" instance=ExtResource("14_5s5ae")]
+speed = 0.2
 
 [node name="Enemy4" parent="lvlObjects/Enemies" instance=ExtResource("5_pudkw")]
-position = Vector2(976, -300)
+position = Vector2(975, -331)
 
 [node name="Enemy5Path" type="Path2D" parent="lvlObjects/Enemies"]
-position = Vector2(1232, -262)
+position = Vector2(1232, -294)
 curve = SubResource("Curve2D_ambvh")
 metadata/_edit_group_ = true
 
@@ -243,7 +236,7 @@ rotates = false
 speed = 0.7
 
 [node name="Enemy6Path" type="Path2D" parent="lvlObjects/Enemies"]
-position = Vector2(130, 95)
+position = Vector2(130, 64)
 curve = SubResource("Curve2D_y1jj4")
 metadata/_edit_group_ = true
 
@@ -254,11 +247,6 @@ rotates = false
 
 [node name="Enemy" parent="lvlObjects/Enemies/Enemy6Path/PathFollow2D" instance=ExtResource("5_pudkw")]
 position = Vector2(-5.5481, 1)
-rotation = -3.14159
-speed = 0.2
-
-[node name="Enemy2" parent="lvlObjects/Enemies/Enemy6Path/PathFollow2D" instance=ExtResource("5_pudkw")]
-position = Vector2(-5.5481, 19)
 rotation = -3.14159
 speed = 0.2
 

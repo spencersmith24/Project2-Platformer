@@ -1,11 +1,11 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://mliyyuu4vpdo"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://biy7optnkifw0"]
 
-[ext_resource type="Texture2D" uid="uid://b0m8aa06irerb" path="res://Assets/prototype/prototyping_assets/tiles_packed.png" id="1_y8u35"]
-[ext_resource type="Texture2D" uid="uid://bfconeoopuxhj" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground.png" id="2_t4iu4"]
-[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="3_n4kxw"]
+[ext_resource type="Texture2D" uid="uid://b0m8aa06irerb" path="res://Assets/prototype/prototyping_assets/tiles_packed.png" id="1_y140y"]
+[ext_resource type="Texture2D" uid="uid://bfconeoopuxhj" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground.png" id="2_ddt4b"]
+[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="3_kpajp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t64p6"]
-texture = ExtResource("1_y8u35")
+texture = ExtResource("1_y140y")
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -220,7 +220,7 @@ texture_region_size = Vector2i(18, 18)
 0:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_myoxa"]
-texture = ExtResource("2_t4iu4")
+texture = ExtResource("2_ddt4b")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -529,7 +529,7 @@ texture_region_size = Vector2i(32, 32)
 7:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p2gkh"]
-texture = ExtResource("3_n4kxw")
+texture = ExtResource("3_kpajp")
 texture_region_size = Vector2i(32, 32)
 27:0/0 = 0
 2:1/0 = 0

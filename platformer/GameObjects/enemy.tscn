@@ -1,46 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://tglgwgytuvrc"]
+[gd_scene load_steps=5 format=3 uid="uid://tglgwgytuvrc"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ty213"]
-[ext_resource type="Texture2D" uid="uid://bd4hfacjlxpen" path="res://Assets/prototype/prototyping_assets/Characters/character_0015.png" id="1_vojm0"]
-[ext_resource type="Texture2D" uid="uid://ctxinf44jkijf" path="res://Assets/prototype/prototyping_assets/Characters/character_0016.png" id="2_r8t3e"]
+[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="2_wqlpo"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6fmd1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_vojm0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_vojm0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_r8t3e")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sqppv"]
+height = 86.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k5rs3"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km7w5"]
+size = Vector2(64, 6)
 
 [node name="Enemy" type="Area2D" groups=["Enemies"]]
 script = ExtResource("1_ty213")
 metadata/_edit_horizontal_guides_ = [-24.0]
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6fmd1")
-animation = &"walk"
-autoplay = "default"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wqlpo")
+region_enabled = true
+region_rect = Rect2(704, 230, 64, 90)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_k5rs3")
+shape = SubResource("CapsuleShape2D_sqppv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_km7w5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
