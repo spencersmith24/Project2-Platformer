@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://f1jbj3k2a3ww"]
+[gd_scene load_steps=5 format=3 uid="uid://f1jbj3k2a3ww"]
 
 [ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="1_0ddyk"]
 [ext_resource type="Script" path="res://Scripts/market.gd" id="1_6by8m"]
+[ext_resource type="FontFile" uid="uid://c8jn1h8q08ejm" path="res://Assets/Font/dumbledor/dum1/dum1ital.ttf" id="3_nqfdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jtvv"]
 size = Vector2(86, 40)
@@ -44,5 +45,17 @@ region_rect = Rect2(483, 329, 20, 87)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_1jtvv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -80.0
+offset_top = -213.0
+offset_right = 1530.0
+offset_bottom = 1187.0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("3_nqfdh")
+theme_override_font_sizes/font_size = 150
+text = "the poop"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
