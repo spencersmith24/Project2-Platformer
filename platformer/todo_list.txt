@@ -4,14 +4,8 @@ TODO:
 	- add music
 	- add sfx
 	- UI
-		- timer, lives, objective list (with checkbox)
-	
-	for level 1:
-	- checkpoint after collecting pumpkin
+		- timer, lives?, objective list?
+	- death animation
 	
 	for level 2: 
-	- introduce some sort of attack ability...
-		- fire flower type beat
-		- squash enemies
-		- dash into them to send flying
-		- SWORD !!!!!!!
+	- make level
