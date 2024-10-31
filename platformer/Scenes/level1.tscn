@@ -173,6 +173,7 @@ position = Vector2(111, 135)
 
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("3_okkwb")
+canContinue = true
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -203,9 +204,9 @@ libraries = {
 autoplay = "bounce"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2(0, -75)
-scale = Vector2(0.6, 1.2)
-transform = Transform2D(0.6, 0, 0, 1.2, 0, -75)
+offset = Vector2(0, -249.09)
+scale = Vector2(0.9, 0.9)
+transform = Transform2D(0.9, 0, 0, 0.9, 0, -249.09)
 follow_viewport_scale = 0.1
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
@@ -412,7 +413,6 @@ shape = SubResource("RectangleShape2D_svi3m")
 position = Vector2(-112, -591)
 text = "\"Thank you for returning the pumpkin!\"
 Press 'ENTER' to continue."
-canContinue = true
 
 [node name="txtObjects" type="Node2D" parent="lvlObjects"]
 
@@ -449,7 +449,7 @@ theme_override_font_sizes/font_size = 150
 text = "Checkpoint!"
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
-position = Vector2(-9, -264)
+position = Vector2(-28, -248)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -464,3 +464,4 @@ limit_bottom = 200
 [connection signal="body_exited" from="lvlObjects/LadderArea" to="Player" method="_on_ladder_area_body_exited"]
 [connection signal="body_entered" from="lvlObjects/LadderArea2" to="Player" method="_on_ladder_area_body_entered"]
 [connection signal="body_exited" from="lvlObjects/LadderArea2" to="Player" method="_on_ladder_area_body_exited"]
+[connection signal="body_entered" from="lvlObjects/Market" to="GameController" method="_on_market_body_entered"]
