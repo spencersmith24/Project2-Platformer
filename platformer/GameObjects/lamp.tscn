@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cao0dsku76d3t"]
+
+[ext_resource type="Texture2D" uid="uid://bb4oifwpim6gx" path="res://Assets/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="1_w5lkk"]
+
+[node name="Lamp" type="Node2D"]
+
+[node name="arm" type="Sprite2D" parent="."]
+position = Vector2(19, -35)
+texture = ExtResource("1_w5lkk")
+region_enabled = true
+region_rect = Rect2(976, 37, 33, 26)
+
+[node name="post" type="Sprite2D" parent="."]
+texture = ExtResource("1_w5lkk")
+region_enabled = true
+region_rect = Rect2(941, 32, 16, 97)
+
+[node name="lantern" type="Sprite2D" parent="."]
+position = Vector2(29, -30)
+texture = ExtResource("1_w5lkk")
+region_enabled = true
+region_rect = Rect2(1002, 6, 13, 18)
+
+[node name="lanternLit" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(29, -30)
+texture = ExtResource("1_w5lkk")
+region_enabled = true
+region_rect = Rect2(969, 6, 13, 18)

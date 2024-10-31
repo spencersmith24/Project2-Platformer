@@ -52,6 +52,8 @@ func obj_check():
 		HIDDEN_LAYER.visible = false
 		HIDDEN_LAYER.collision_enabled = false
 		has_checkpoint = true
-
+		$"../Lamp".get_node("lanternLit").visible = true
+		$"../Lamp".get_node("lantern").visible = false
+		
 func _on_btm_bndry_body_entered(_body):
 	reset_level()

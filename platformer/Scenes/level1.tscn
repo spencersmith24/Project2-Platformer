@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bhcaup6f5wm1f"]
+[gd_scene load_steps=32 format=4 uid="uid://bhcaup6f5wm1f"]
 
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="3_okkwb"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cur7cthg1wxoj" path="res://GameObjects/double_jump_item.tscn" id="8_gnhq8"]
 [ext_resource type="PackedScene" uid="uid://bulrfws1ce2aj" path="res://GameObjects/pumpkin.tscn" id="10_irpmu"]
 [ext_resource type="TileSet" uid="uid://biy7optnkifw0" path="res://Assets/tile_set.tres" id="10_v7vaa"]
+[ext_resource type="PackedScene" uid="uid://cao0dsku76d3t" path="res://GameObjects/lamp.tscn" id="11_62j1k"]
 [ext_resource type="Texture2D" uid="uid://chuphpovuifxo" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/sky.png" id="12_mat8a"]
 [ext_resource type="Texture2D" uid="uid://7jyerg3cql8u" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/clouds_1.png" id="13_axkkj"]
 [ext_resource type="PackedScene" uid="uid://ff3unbe8llyt" path="res://GameObjects/enemy_small.tscn" id="14_5s5ae"]
@@ -301,6 +302,10 @@ position = Vector2(0, 100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BtmBndry"]
 shape = SubResource("WorldBoundaryShape2D_0vs61")
+
+[node name="Lamp" parent="." instance=ExtResource("11_62j1k")]
+position = Vector2(1490, -367)
+scale = Vector2(-1, 1)
 
 [node name="lvlObjects" type="Node2D" parent="."]
 
