@@ -3,18 +3,15 @@ TODO:
 	global:
 	- add music
 	- add sfx
+	- UI
+		- timer, lives
 	
 	for level 1:
-	- create the rest of the level, utilizing the double jump
-		- change the way back once player has flag... 
-			go through the wall above the door??
-				DONE
 	- checkpoint after collecting pumpkin
-	- text bubble comes up by board
 	
 	for level 2: 
 	- introduce some sort of attack ability...
 		- fire flower type beat
 		- squash enemies
 		- dash into them to send flying
-	- maybe introduce a new enemy?
+		- SWORD !!!!!!!

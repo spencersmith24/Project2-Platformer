@@ -1,7 +1,6 @@
-[gd_scene load_steps=32 format=4 uid="uid://bhcaup6f5wm1f"]
+[gd_scene load_steps=31 format=4 uid="uid://bhcaup6f5wm1f"]
 
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
-[ext_resource type="FontFile" uid="uid://b8x27q8262283" path="res://Assets/Font/origami-mommy/origa___.ttf" id="3_gut3b"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="3_okkwb"]
 [ext_resource type="PackedScene" uid="uid://mbkaybra0y0l" path="res://GameObjects/axe.tscn" id="5_givim"]
 [ext_resource type="PackedScene" uid="uid://tglgwgytuvrc" path="res://GameObjects/enemy.tscn" id="5_pudkw"]
@@ -173,6 +172,20 @@ position = Vector2(111, 135)
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("3_okkwb")
 
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -164.0
+offset_top = -323.0
+offset_right = -124.0
+offset_bottom = -300.0
+text = "fart
+"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../lvlObjects/DoubleJumpItem")
 libraries = {
@@ -189,6 +202,8 @@ follow_viewport_scale = 0.1
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 texture = ExtResource("12_mat8a")
@@ -196,6 +211,8 @@ texture = ExtResource("12_mat8a")
 [node name="Clouds_1" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_1"]
 texture = ExtResource("13_axkkj")
@@ -203,6 +220,8 @@ texture = ExtResource("13_axkkj")
 [node name="Clouds_2" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_2"]
 texture = ExtResource("14_m78qa")
@@ -210,6 +229,8 @@ texture = ExtResource("14_m78qa")
 [node name="Rocks" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Rocks"]
 texture = ExtResource("15_2mrna")
@@ -217,6 +238,8 @@ texture = ExtResource("15_2mrna")
 [node name="Plant" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.99, 0.99)
 motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Plant"]
 texture = ExtResource("16_nlo5y")
@@ -224,6 +247,8 @@ texture = ExtResource("16_nlo5y")
 [node name="Ground_1" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_1"]
 texture = ExtResource("17_lkx5o")
@@ -231,6 +256,8 @@ texture = ExtResource("17_lkx5o")
 [node name="Ground_2" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_2"]
 texture = ExtResource("18_q6a0d")
@@ -238,6 +265,8 @@ texture = ExtResource("18_q6a0d")
 [node name="Ground_3" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
 motion_scale = Vector2(0.9, 0.9)
 motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_3"]
 texture = ExtResource("19_xhlxa")
@@ -266,67 +295,7 @@ position = Vector2(0, 100)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BtmBndry"]
 shape = SubResource("WorldBoundaryShape2D_0vs61")
 
-[node name="UI" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = -70.0
-offset_top = -781.0
-offset_right = 1624.0
-offset_bottom = 88.0
-
-[node name="Jump_Tut" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 72.0
-offset_top = 569.0
-offset_right = 221.0
-offset_bottom = 644.0
-scale = Vector2(0.619693, 0.619693)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_gut3b")
-theme_override_font_sizes/font_size = 22
-text = "Press 'space' to jump."
-autowrap_mode = 2
-
-[node name="DJ_Tut" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 582.0
-offset_top = 517.0
-offset_right = 697.0
-offset_bottom = 652.0
-scale = Vector2(0.425456, 0.425456)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_gut3b")
-theme_override_font_sizes/font_size = 20
-text = "Press 'space' twice to double jump!"
-autowrap_mode = 2
-
 [node name="lvlObjects" type="Node2D" parent="."]
-
-[node name="txtObjects" type="Node2D" parent="lvlObjects"]
-
-[node name="Board" parent="lvlObjects/txtObjects" instance=ExtResource("18_8g3ln")]
-position = Vector2(-27, -189)
-text = "Please find our pumpkin, we need to make stew! 
--The Village"
-
-[node name="Sign" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
-position = Vector2(55, -174)
-text = "Use 'a' and 'd' to move (or arrows), 'space' to jump."
-
-[node name="Sign2" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
-position = Vector2(398, -206)
-text = "Use 'e' to chop once you have an axe..."
-
-[node name="Sign3" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
-position = Vector2(531, -206)
-text = "Press 'space' twice to double jump."
-
-[node name="Sign4" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
-position = Vector2(336, -46)
-text = "Use 'w' (or up arrow) to climb."
 
 [node name="Axe" parent="lvlObjects" groups=["Keys"] instance=ExtResource("5_givim")]
 position = Vector2(476, -103)
@@ -429,6 +398,29 @@ shape = SubResource("RectangleShape2D_svi3m")
 
 [node name="Market" parent="lvlObjects" instance=ExtResource("19_atr5o")]
 position = Vector2(-112, -591)
+
+[node name="txtObjects" type="Node2D" parent="lvlObjects"]
+
+[node name="Board" parent="lvlObjects/txtObjects" instance=ExtResource("18_8g3ln")]
+position = Vector2(-27, -189)
+text = "Please find our pumpkin, we need to make stew! 
+-The Village"
+
+[node name="Sign" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(55, -174)
+text = "Use 'a' and 'd' to move (or arrows), 'space' to jump."
+
+[node name="Sign2" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(398, -206)
+text = "Use 'e' to chop once you have an axe..."
+
+[node name="Sign3" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(531, -206)
+text = "Press 'space' twice to double jump."
+
+[node name="Sign4" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
+position = Vector2(336, -46)
+text = "Use 'w' (or up arrow) to climb."
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
 position = Vector2(0, -180)
