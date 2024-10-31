@@ -113,7 +113,6 @@ func _on_ladder_area_body_exited(body):
 # Hitting enemy
 func collide_with_enemy():
 	GAME_CONTROLLER.reset_level()
-	
 	#TODO: reduce lives when hit.
 
 

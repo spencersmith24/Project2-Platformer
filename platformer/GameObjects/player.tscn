@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bk2j6ib7v6ye"]
+[gd_scene load_steps=29 format=3 uid="uid://bk2j6ib7v6ye"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4o8yn"]
 [ext_resource type="Texture2D" uid="uid://rlfutrcbrqpv" path="res://Assets/AnimationSheet_Character.png" id="2_57f64"]
@@ -18,7 +18,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [0]
 }
 tracks/1/type = "value"
@@ -46,7 +46,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(-0.0333333, 0.0666667, 0.133333, 0.2, 0.3, 0.4, 0.466667, 0.533333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [64, 65, 66, 67, 68, 69, 70, 71]
 }
 tracks/1/type = "value"
@@ -74,6 +74,22 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_b2nrg"]
+resource_name = "death"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [48, 49, 50, 51, 52]
+}
+
 [sub_resource type="Animation" id="Animation_sbk1c"]
 resource_name = "idle"
 loop_mode = 1
@@ -86,7 +102,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [0, 1]
 }
 
@@ -102,7 +118,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(-0.0333333, 0.0333333, 0.133333, 0.233333, 0.366667, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [40, 41, 42, 43, 44, 45, 46, 47]
 }
 
@@ -119,7 +135,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [16, 17, 18, 19]
 }
 
@@ -127,6 +143,7 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_ypvcf"),
 "attack": SubResource("Animation_wulst"),
+"death": SubResource("Animation_b2nrg"),
 "idle": SubResource("Animation_sbk1c"),
 "jump": SubResource("Animation_jxr5q"),
 "walk": SubResource("Animation_fhqcw")
@@ -197,9 +214,9 @@ advance_mode = 2
 advance_condition = &"attack"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5x7fr"]
-states/Start/position = Vector2(202, 100)
+states/Start/position = Vector2(201, 100)
 states/attack/node = SubResource("AnimationNodeAnimation_3njan")
-states/attack/position = Vector2(560.729, 236.203)
+states/attack/position = Vector2(562.039, 236)
 states/idle/node = SubResource("AnimationNodeAnimation_2sxjx")
 states/idle/position = Vector2(326, 100)
 states/jump/node = SubResource("AnimationNodeAnimation_iy26a")
@@ -207,7 +224,7 @@ states/jump/position = Vector2(326, 236)
 states/walk/node = SubResource("AnimationNodeAnimation_iqnjh")
 states/walk/position = Vector2(562.039, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_wxdbu"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_sj72n"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_i4fth"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_jlirs"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_j6vkh"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_kxk1u"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_h24qy"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_0goxy"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_abe3h"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_oyfs0"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_k24cc"), "jump", "attack", SubResource("AnimationNodeStateMachineTransition_6yutc")]
-graph_offset = Vector2(74.2199, 48.5575)
+graph_offset = Vector2(-142.78, 28.5575)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wujfp"]
 size = Vector2(16, 29)

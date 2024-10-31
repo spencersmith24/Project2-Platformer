@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://bhcaup6f5wm1f"]
+[gd_scene load_steps=33 format=4 uid="uid://bhcaup6f5wm1f"]
 
 [ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="1_bqwsb"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="3_okkwb"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://f1jbj3k2a3ww" path="res://GameObjects/market.tscn" id="19_atr5o"]
 [ext_resource type="Texture2D" uid="uid://cr5s78266uajn" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_3.png" id="19_xhlxa"]
 [ext_resource type="PackedScene" uid="uid://dq7y5144i8e0i" path="res://GameObjects/sign.tscn" id="20_ietxu"]
+[ext_resource type="FontFile" uid="uid://dw1rssdweo10p" path="res://Assets/Font/dumbledor/dum3/dum3wide.ttf" id="20_s61yf"]
 
 [sub_resource type="Animation" id="Animation_5mlp6"]
 length = 0.001
@@ -409,6 +410,9 @@ shape = SubResource("RectangleShape2D_svi3m")
 
 [node name="Market" parent="lvlObjects" instance=ExtResource("19_atr5o")]
 position = Vector2(-112, -591)
+text = "\"Thank you for returning the pumpkin!\"
+Press 'ENTER' to continue."
+canContinue = true
 
 [node name="txtObjects" type="Node2D" parent="lvlObjects"]
 
@@ -433,13 +437,24 @@ text = "Press 'SPACE' twice to double jump."
 position = Vector2(336, -46)
 text = "Use 'W' (or up arrow) to climb."
 
+[node name="CheckpointLabel" type="Label" parent="lvlObjects/txtObjects"]
+visible = false
+offset_left = 1453.0
+offset_top = -384.0
+offset_right = 2249.0
+offset_bottom = -230.0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("20_s61yf")
+theme_override_font_sizes/font_size = 150
+text = "Checkpoint!"
+
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
-position = Vector2(-19, -180)
+position = Vector2(-52, -561)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3.73, 3.73)
-limit_left = -55
+limit_left = -190
 limit_top = -700
 limit_right = 1620
 limit_bottom = 200
