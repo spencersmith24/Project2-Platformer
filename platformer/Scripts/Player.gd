@@ -110,14 +110,15 @@ func _on_ladder_area_body_exited(body):
 	if body == self:
 		can_climb = false
 
-# Hitting enemy
+# Touching enemy
 func collide_with_enemy():
 	GAME_CONTROLLER.reset_level()
 	#TODO: reduce lives when hit.
 
 
+# Attacking things
 func _on_attack_area_body_entered(body):
+	# Obstacle attacking
 	if body.is_in_group("Obstacles"):
 		body.process_mode = PROCESS_MODE_DISABLED
 		body.modulate.a = 0.25
-		#TODO: change it so you must attack barrier to get through

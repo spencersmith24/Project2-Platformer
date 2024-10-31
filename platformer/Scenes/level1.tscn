@@ -180,20 +180,20 @@ anchors_preset = 0
 
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = -164.0
-offset_top = -323.0
-offset_right = -124.0
-offset_bottom = -300.0
-text = "fart
+offset_left = 115.0
+offset_top = -357.0
+offset_right = 240.0
+offset_bottom = -334.0
+text = "timer to go here
 "
 
 [node name="Label2" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 130.0
-offset_top = -323.0
-offset_right = 346.0
-offset_bottom = -300.0
-text = "GET THE FUCKING PUMPKIN"
+offset_left = 89.0
+offset_top = -378.0
+offset_right = 242.0
+offset_bottom = -355.0
+text = "objective to go here"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../lvlObjects/DoubleJumpItem")
@@ -310,7 +310,7 @@ scale = Vector2(-1, 1)
 
 [node name="lvlObjects" type="Node2D" parent="."]
 
-[node name="Axe" parent="lvlObjects" groups=["Keys"] instance=ExtResource("5_givim")]
+[node name="Axe" parent="lvlObjects" instance=ExtResource("5_givim")]
 position = Vector2(476, -103)
 
 [node name="Pumpkin" parent="lvlObjects" instance=ExtResource("10_irpmu")]
@@ -449,7 +449,7 @@ theme_override_font_sizes/font_size = 150
 text = "Checkpoint!"
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
-position = Vector2(-52, -561)
+position = Vector2(-9, -264)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
