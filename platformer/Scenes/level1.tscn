@@ -173,7 +173,6 @@ position = Vector2(111, 135)
 script = ExtResource("3_okkwb")
 
 [node name="UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 
@@ -185,6 +184,14 @@ offset_right = -124.0
 offset_bottom = -300.0
 text = "fart
 "
+
+[node name="Label2" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -323.0
+offset_right = 346.0
+offset_bottom = -300.0
+text = "GET THE FUCKING PUMPKIN"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../lvlObjects/DoubleJumpItem")
@@ -309,7 +316,6 @@ position = Vector2(493, -204)
 [node name="Enemies" type="Node2D" parent="lvlObjects"]
 
 [node name="Enemy1Path" type="Path2D" parent="lvlObjects/Enemies"]
-process_mode = 4
 position = Vector2(183, -138)
 curve = SubResource("Curve2D_pk883")
 metadata/_edit_group_ = true
@@ -402,28 +408,28 @@ position = Vector2(-112, -591)
 [node name="txtObjects" type="Node2D" parent="lvlObjects"]
 
 [node name="Board" parent="lvlObjects/txtObjects" instance=ExtResource("18_8g3ln")]
-position = Vector2(-27, -189)
+position = Vector2(210, -188)
 text = "Please find our pumpkin, we need to make stew! 
 -The Village"
 
 [node name="Sign" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
-position = Vector2(55, -174)
-text = "Use 'a' and 'd' to move (or arrows), 'space' to jump."
+position = Vector2(-45, -174)
+text = "Use 'A' and 'D' to move (or arrows), 'SPACE' to jump."
 
 [node name="Sign2" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
 position = Vector2(398, -206)
-text = "Use 'e' to chop once you have an axe..."
+text = "Use 'E' to chop once you have an axe..."
 
 [node name="Sign3" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
 position = Vector2(531, -206)
-text = "Press 'space' twice to double jump."
+text = "Press 'SPACE' twice to double jump."
 
 [node name="Sign4" parent="lvlObjects/txtObjects" instance=ExtResource("20_ietxu")]
 position = Vector2(336, -46)
-text = "Use 'w' (or up arrow) to climb."
+text = "Use 'W' (or up arrow) to climb."
 
 [node name="Player" parent="." instance=ExtResource("1_bqwsb")]
-position = Vector2(0, -180)
+position = Vector2(-19, -180)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

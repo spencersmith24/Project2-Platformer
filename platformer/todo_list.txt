@@ -4,7 +4,7 @@ TODO:
 	- add music
 	- add sfx
 	- UI
-		- timer, lives
+		- timer, lives, objective list (with checkbox)
 	
 	for level 1:
 	- checkpoint after collecting pumpkin
