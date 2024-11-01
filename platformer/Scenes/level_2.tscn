@@ -1,8 +1,154 @@
-[gd_scene format=3 uid="uid://brfp6qtssbshn"]
+[gd_scene load_steps=18 format=4 uid="uid://brfp6qtssbshn"]
+
+[ext_resource type="Script" path="res://Scripts/game_controller2.gd" id="1_g8a60"]
+[ext_resource type="Texture2D" uid="uid://chuphpovuifxo" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/sky.png" id="2_oapsf"]
+[ext_resource type="Texture2D" uid="uid://7jyerg3cql8u" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/clouds_1.png" id="3_wydya"]
+[ext_resource type="Texture2D" uid="uid://c50k3iut0wj78" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/clouds_2.png" id="4_ogdvv"]
+[ext_resource type="Texture2D" uid="uid://1s3y4decdpfe" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/rocks.png" id="5_dvmkc"]
+[ext_resource type="Texture2D" uid="uid://byal0n1ej2ijf" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/plant.png" id="6_mn532"]
+[ext_resource type="Texture2D" uid="uid://clcjujlfx04st" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_1.png" id="7_xa18x"]
+[ext_resource type="Texture2D" uid="uid://wjftun1av6h0" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_2.png" id="8_ow4pr"]
+[ext_resource type="Texture2D" uid="uid://cr5s78266uajn" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_3.png" id="9_75xgx"]
+[ext_resource type="TileSet" uid="uid://biy7optnkifw0" path="res://Assets/tile_set.tres" id="10_0mvqr"]
+[ext_resource type="PackedScene" uid="uid://f1jbj3k2a3ww" path="res://GameObjects/market.tscn" id="11_hp45c"]
+[ext_resource type="PackedScene" uid="uid://bulrfws1ce2aj" path="res://GameObjects/pumpkin.tscn" id="12_keufi"]
+[ext_resource type="PackedScene" uid="uid://bk2j6ib7v6ye" path="res://GameObjects/player.tscn" id="13_k3sdo"]
+[ext_resource type="PackedScene" uid="uid://tglgwgytuvrc" path="res://GameObjects/enemy.tscn" id="13_nwim2"]
+[ext_resource type="PackedScene" uid="uid://cao0dsku76d3t" path="res://GameObjects/lamp.tscn" id="15_bb0kk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6ew7p"]
+
+[sub_resource type="Curve2D" id="Curve2D_jhmpu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 257, -634, 0, 0, 0, 0, 402, -634, 0, 0, 0, 0, 257, -634)
+}
+point_count = 3
 
 [node name="Level2" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "LEVEL 2"
+[node name="GameController" type="Node" parent="."]
+script = ExtResource("1_g8a60")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, -10.68)
+scale = Vector2(1.8, 1.8)
+transform = Transform2D(1.8, 0, 0, 1.8, 0, -10.68)
+follow_viewport_scale = 0.1
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture = ExtResource("2_oapsf")
+
+[node name="Clouds_1" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_1"]
+texture = ExtResource("3_wydya")
+
+[node name="Clouds_2" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+motion_scale = Vector2(0.75, 0.75)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_2"]
+texture = ExtResource("4_ogdvv")
+
+[node name="Rocks" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Rocks"]
+texture = ExtResource("5_dvmkc")
+
+[node name="Plant" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+motion_scale = Vector2(0.99, 0.99)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Plant"]
+texture = ExtResource("6_mn532")
+
+[node name="Ground_1" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_1"]
+texture = ExtResource("7_xa18x")
+
+[node name="Ground_2" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_2"]
+texture = ExtResource("8_ow4pr")
+
+[node name="Ground_3" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_3"]
+texture = ExtResource("9_75xgx")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAOv/AQAAAAAAAAABAOv/AQABAAAAAAACAOv/AQABAAAAAAADAOv/AQABAAAAAAAEAOv/AQABAAAAAAAFAOv/AQABAAAAAAAGAOv/AQACAAAAAAAHAO3/AQABAAAAAAAIAO3/AQABAAAAAAAJAO3/AQABAAAAAAAKAO3/AQABAAAAAAALAO3/AQABAAAAAAAMAO3/AQABAAAAAAANAOz/AQAAAAAAAAAOAOz/AQABAAAAAAAPAOz/AQABAAAAAAAQAOz/AQABAAAAAAARAOz/AQACAAAAAAASAO7/AQABAAAAAAATAO7/AQABAAAAAAAUAO7/AQABAAAAAAAVAO7/AQABAAAAAAAWAO7/AQABAAAAAAAXAO7/AQACAAAAAAAeAOv/AQAAAAEAAAAeAOz/AQAAAAEAAAAeAO3/AQAAAAEAAAAeAO7/AQAAAAEAAAAeAO//AQAAAAEAAAAeAPD/AQAAAAEAAAAeAPH/AQAAAAEAAAAeAPL/AQAAAAEAAAAeAPP/AQACAAYAAAAeAPT/AQACAAQAAAABAOz/AQAAAAQAAAABAO3/AQACAAEAAAABAO7/AQACAAEAAAABAO//AQACAAEAAAABAPD/AQACAAEAAAABAPH/AQACAAEAAAABAPL/AQACAAEAAAABAPP/AQACAAEAAAABAPT/AQACAAEAAAABAPX/AQACAAEAAAABAPb/AQACAAEAAAABAPf/AQACAAEAAAABAPj/AQACAAEAAAABAPn/AQAAAAYAAAABAPr/AQABAAEAAAABAPv/AQABAAEAAAAeAPX/AQAAAAEAAAAeAPb/AQAAAAEAAAAeAPf/AQAAAAEAAAAeAPj/AQAAAAEAAAAeAPn/AQAAAAEAAAAeAPr/AQAAAAEAAAAeAPv/AQAAAAEAAAAAAOz/AQAAAAEAAAAAAO3/AQAAAAEAAAAAAO7/AQAAAAEAAAAAAO//AQAAAAEAAAAAAPD/AQAAAAEAAAAAAPH/AQAAAAEAAAAAAPL/AQAAAAEAAAAAAPP/AQAAAAEAAAAAAPT/AQAAAAEAAAAAAPX/AQAAAAEAAAAAAPb/AQAAAAEAAAAAAPf/AQAAAAEAAAAAAPj/AQAAAAEAAAAAAPn/AQAAAAEAAAAAAPr/AQAAAAEAAAAAAPv/AQAAAAEAAAAfAOv/AQACAAEAAAAfAOz/AQACAAEAAAAfAO3/AQACAAEAAAAfAO7/AQACAAEAAAAfAO//AQACAAEAAAAfAPD/AQACAAEAAAAfAPH/AQACAAEAAAAfAPL/AQACAAEAAAAfAPP/AQACAAEAAAAfAPT/AQACAAEAAAAfAPX/AQACAAEAAAAfAPb/AQACAAEAAAAfAPf/AQACAAEAAAAfAPj/AQACAAEAAAAfAPn/AQACAAEAAAAfAPr/AQACAAEAAAAfAPv/AQACAAEAAAAGAO3/AQAAAAYAAAARAO7/AQAAAAYAAAAGAOz/AQACAAEAAAARAO3/AQACAAEAAAANAO3/AQACAAYAAAAMAO7/AQABAAIAAAALAO7/AQABAAIAAAAKAO7/AQABAAIAAAAJAO7/AQABAAIAAAAIAO7/AQABAAIAAAAHAO7/AQABAAIAAAAGAO7/AQABAAIAAAAFAO7/AQAMAAEAAAAFAO3/AQAAAAEAAAACAOz/AQABAAIAAAADAOz/AQABAAIAAAAEAOz/AQABAAIAAAAFAOz/AQACAAQAAAAWAO//AQABAAIAAAAVAO//AQABAAIAAAAUAO//AQABAAIAAAATAO//AQABAAIAAAASAO//AQABAAIAAAARAO//AQABAAIAAAAQAO//AQAMAAEAAAAQAO7/AQAAAAEAAAANAO7/AQABAAIAAAAQAO3/AQACAAQAAAAPAO3/AQABAAQAAAAOAO3/AQAAAAQAAAAOAO7/AQAFAAEAAAAGAPT/AQAAAAEAAAAHAPT/AQACAAEAAAAMAPP/AQAAAAAAAAANAPP/AQABAAAAAAAOAPP/AQABAAAAAAAPAPP/AQABAAAAAAAQAPP/AQABAAAAAAARAPP/AQACAAAAAAARAPT/AQACAAEAAAARAPX/AQAAAAYAAAASAPX/AQABAAAAAAATAPX/AQABAAAAAAAUAPX/AQABAAAAAAAVAPX/AQABAAAAAAAWAPX/AQABAAAAAAAXAPX/AQABAAAAAAAYAPP/AQAAAAAAAAAYAPT/AQAAAAEAAAAZAPP/AQABAAAAAAAaAPP/AQABAAAAAAAbAPP/AQABAAAAAAAcAPP/AQABAAAAAAAdAPP/AQABAAAAAAACAPn/AQACAAAAAAACAPr/AQACAAEAAAADAPv/AQABAAAAAAAEAPv/AQABAAAAAAAFAPv/AQACAAAAAAAFAPz/AQAAAAYAAAAGAPz/AQABAAAAAAAHAPz/AQABAAAAAAAIAPz/AQABAAAAAAAJAPv/AQAAAAAAAAAKAPv/AQABAAAAAAALAPv/AQACAAAAAAALAPz/AQACAAEAAAALAP3/AQAAAAYAAAAMAP3/AQABAAAAAAANAP3/AQABAAAAAAAOAP3/AQABAAAAAAAPAP3/AQABAAAAAAAQAP3/AQACAAAAAAARAP//AQABAAAAAAASAP//AQABAAAAAAATAP//AQABAAAAAAAUAP//AQABAAAAAAAVAP//AQABAAAAAAAWAP//AQABAAAAAAAMAPT/AQACAAYAAAAGAPX/AQACAAYAAAAHAPX/AQAAAAYAAAAIAPX/AQABAAAAAAAMAPX/AQABAAIAAAANAPX/AQAFAAEAAAANAPT/AQAAAAQAAAAOAPT/AQABAAQAAAAPAPT/AQABAAQAAAAQAPT/AQACAAQAAAAQAPX/AQACAAUAAAAQAPb/AQAEAAEAAAARAPb/AQABAAIAAAASAPb/AQABAAIAAAATAPb/AQABAAIAAAAUAPb/AQABAAIAAAAVAPb/AQABAAIAAAAWAPb/AQABAAIAAAAXAPb/AQABAAIAAAAYAPX/AQACAAYAAAAYAPb/AQABAAQAAAAZAPb/AQAFAAEAAAAZAPX/AQACAAEAAAAaAPT/AQABAAIAAAAbAPT/AQABAAIAAAAcAPT/AQABAAIAAAAdAPT/AQABAAIAAAAZAPT/AQAAAAQAAAACAPv/AQAAAAYAAAAJAPz/AQACAAYAAAAQAP7/AQACAAEAAAAQAP//AQAAAAYAAAAXAP//AQACAAAAAAAeAPz/AQAAAAEAAAAfAPz/AQACAAEAAAAeAP3/AQAAAAEAAAAfAP3/AQACAAEAAAAeAP7/AQAAAAEAAAAfAP7/AQACAAEAAAAeAP//AQAAAAEAAAAfAP//AQACAAEAAAAeAAAAAQACAAYAAAAfAAAAAQACAAEAAAAfAAEAAQACAAIAAAAeAAEAAQABAAIAAAAdAAEAAQABAAIAAAAcAAEAAQABAAIAAAAbAAEAAQABAAIAAAAaAAEAAQABAAIAAAAZAAEAAQABAAIAAAAYAAEAAQABAAIAAAAXAAEAAQABAAIAAAAWAAEAAQABAAIAAAAVAAEAAQABAAIAAAAUAAEAAQABAAIAAAATAAEAAQABAAIAAAASAAEAAQABAAIAAAARAAEAAQABAAIAAAAQAAEAAQABAAIAAAAPAAEAAQABAAIAAAAOAAEAAQABAAIAAAANAAEAAQABAAIAAAAMAAEAAQABAAIAAAALAAEAAQABAAIAAAAKAAEAAQABAAIAAAAJAAEAAQABAAIAAAAIAAEAAQABAAIAAAAHAAEAAQABAAIAAAAGAAEAAQABAAIAAAAFAAEAAQABAAIAAAAEAAEAAQABAAIAAAADAAEAAQABAAIAAAACAAEAAQABAAIAAAABAAEAAQABAAIAAAAAAPz/AQAAAAEAAAABAPz/AQABAAEAAAAAAP3/AQAAAAEAAAABAP3/AQABAAEAAAAAAP7/AQAAAAEAAAABAP7/AQABAAEAAAAAAP//AQAAAAEAAAABAP//AQABAAEAAAAAAAAAAQAAAAEAAAABAAAAAQABAAEAAAAAAAEAAQAAAAIAAAACAPz/AQABAAEAAAADAPz/AQABAAEAAAAEAPz/AQABAAEAAAACAP3/AQABAAEAAAADAP3/AQABAAEAAAAEAP3/AQABAAEAAAAFAP3/AQABAAEAAAACAP7/AQABAAEAAAADAP7/AQABAAEAAAAEAP7/AQABAAEAAAAFAP7/AQABAAEAAAAGAP7/AQABAAEAAAACAP//AQABAAEAAAADAP//AQABAAEAAAAEAP//AQABAAEAAAAFAP//AQABAAEAAAAGAP//AQABAAEAAAAHAP//AQABAAEAAAAEAAAAAQABAAEAAAADAAAAAQABAAEAAAACAAAAAQABAAEAAAAGAP3/AQABAAEAAAAHAP3/AQABAAEAAAAIAP3/AQABAAEAAAAJAP3/AQABAAEAAAAKAPz/AQABAAEAAAAKAP3/AQABAAEAAAAHAP7/AQABAAEAAAAIAP7/AQABAAEAAAAJAP7/AQABAAEAAAAKAP7/AQABAAEAAAALAP7/AQABAAEAAAAMAP7/AQABAAEAAAANAP7/AQABAAEAAAAOAP7/AQABAAEAAAAPAP7/AQABAAEAAAAFAAAAAQABAAEAAAAGAAAAAQABAAEAAAAHAAAAAQABAAEAAAAIAAAAAQABAAEAAAAJAAAAAQABAAEAAAAKAAAAAQABAAEAAAALAAAAAQABAAEAAAAMAAAAAQABAAEAAAANAAAAAQABAAEAAAAOAAAAAQABAAEAAAAPAAAAAQABAAEAAAAIAP//AQABAAEAAAAJAP//AQABAAEAAAAKAP//AQABAAEAAAALAP//AQABAAEAAAAMAP//AQABAAEAAAANAP//AQABAAEAAAAOAP//AQABAAEAAAAPAP//AQABAAEAAAAQAAAAAQABAAEAAAARAAAAAQABAAEAAAASAAAAAQABAAEAAAATAAAAAQABAAEAAAAUAAAAAQABAAEAAAAVAAAAAQABAAEAAAAWAAAAAQABAAEAAAAXAAAAAQAAAAYAAAAYAAAAAQABAAYAAAAZAAAAAQABAAYAAAAaAAAAAQABAAYAAAAbAAAAAQABAAYAAAAcAAAAAQABAAYAAAAdAAAAAQABAAYAAAAXAPr/AQAMAAEAAAAYAPr/AQABAAIAAAAZAPr/AQABAAIAAAAaAPr/AQABAAIAAAAbAPr/AQABAAIAAAAcAPr/AQAFAAEAAAAGAPP/AQAAAAAAAAAHAPP/AQACAAAAAAASAPv/AQAHAAEAAAASAPr/AQAAAAgAAAAXAPn/AQAAAAAAAAAYAPn/AQABAAAAAAAZAPn/AQABAAAAAAAaAPn/AQABAAAAAAAbAPn/AQABAAAAAAAcAPn/AQACAAAAAAAFAPX/AQAGAAUAAAAFAPb/AQAEAAEAAAAGAPb/AQABAAIAAAAHAPb/AQABAAIAAAAIAPb/AQABAAIAAAAJAPX/AQABAAAAAAALAPT/AQAAAAAAAAAKAPX/AQABAAAAAAALAPX/AQAIAAkAAAAJAPb/AQABAAIAAAAKAPb/AQABAAIAAAALAPb/AQAFAAEAAAAYAO//AQALAA8AAAAXAO//AQANAAkAAAA=")
+tile_set = ExtResource("10_0mvqr")
+
+[node name="BtmBndry" type="Area2D" parent="."]
+position = Vector2(0, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BtmBndry"]
+shape = SubResource("WorldBoundaryShape2D_6ew7p")
+
+[node name="Lamp" parent="." instance=ExtResource("15_bb0kk")]
+position = Vector2(915, -271)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="lvlObjects" type="Node2D" parent="."]
+
+[node name="Market" parent="lvlObjects" instance=ExtResource("11_hp45c")]
+position = Vector2(95, -687)
+
+[node name="Pumpkin" parent="lvlObjects" instance=ExtResource("12_keufi")]
+position = Vector2(866, -253)
+scale = Vector2(2, 2)
+
+[node name="Node2D" type="Node2D" parent="lvlObjects"]
+
+[node name="Enemy1Path" type="Path2D" parent="lvlObjects/Node2D"]
+position = Vector2(0, -17)
+curve = SubResource("Curve2D_jhmpu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="lvlObjects/Node2D/Enemy1Path"]
+position = Vector2(402, -634)
+progress = 145.0
+rotates = false
+
+[node name="Enemy" parent="lvlObjects/Node2D/Enemy1Path/PathFollow2D" instance=ExtResource("13_nwim2")]
+
+[node name="Player" parent="." instance=ExtResource("13_k3sdo")]
+position = Vector2(124, -746)
+JUMP_VELOCITY = -375.0
+extra_jump = true
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3.73, 3.73)
