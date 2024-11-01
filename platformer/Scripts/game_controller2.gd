@@ -35,6 +35,7 @@ func reset_level():
 
 func obj_check():
 	if PLAYER.has_obj:
+		
 		HIDDEN_LAYER.process_mode = Node.PROCESS_MODE_INHERIT
 		HIDDEN_LAYER.visible = true
 		HIDDEN_LAYER.collision_enabled = true
@@ -56,12 +57,16 @@ func _on_btm_bndry_body_entered(_body):
 
 func _on_market_body_entered(body):
 	if body.is_in_group("Player"):
+		GAME_MARKET.txtVisibility = true
 		if body.has_obj:
-			GAME_MARKET.txtVisibility = true
 			body.has_obj = false
 			canContinue = true
-	else:
-		GAME_MARKET.txtVisibility = false
+			GAME_MARKET.text = "Thank you! Press 'ENTER' to turn in the pumpkin."
+		else:
+			pass
+
+func _on_market_body_exited(body: Node2D) -> void:
+	GAME_MARKET.txtVisibility = false
 
 func can_continue_check():
 	if Input.is_action_just_pressed("continue") and canContinue:

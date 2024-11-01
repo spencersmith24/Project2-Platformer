@@ -171,7 +171,8 @@ scale = Vector2(1, -1)
 [node name="lvlObjects" type="Node2D" parent="."]
 
 [node name="Market" parent="lvlObjects" instance=ExtResource("11_hp45c")]
-position = Vector2(95, -687)
+position = Vector2(134, -687)
+text = "That stew was so good that we want to make more... but our second pumpkin was stolen. Please find it!"
 
 [node name="Pumpkin" parent="lvlObjects" instance=ExtResource("12_keufi")]
 position = Vector2(866, -253)
@@ -250,3 +251,6 @@ zoom = Vector2(3.73, 3.73)
 limit_left = 15
 limit_right = 1000
 limit_bottom = 50
+
+[connection signal="body_entered" from="lvlObjects/Market" to="GameController" method="_on_market_body_entered"]
+[connection signal="body_exited" from="lvlObjects/Market" to="GameController" method="_on_market_body_exited"]
