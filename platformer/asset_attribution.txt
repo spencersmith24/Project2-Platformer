@@ -1,11 +1,19 @@
 - backgrounds from itch. 
 	https://free-game-assets.itch.io/free-horizontal-game-backgrounds
 
-- assets from itch
+- assets from Cainos
 	https://cainos.itch.io/pixel-art-platformer-village-props
 
-- character from itch
+- character from Penzilla
 	https://penzilla.itch.io/hooded-protagonist
 
 - font from 1001 fonts.
 	https://www.1001fonts.com/dumbledor-font.html
+
+- music from Dmitry Taras
+	- https://pixabay.com/music/scary-childrens-tunes-slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010/
+
+- sfx from leohpaz
+	- https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack
+- sfx from kenny
+	- https://kenney.nl/assets/impact-sounds

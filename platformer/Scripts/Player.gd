@@ -27,6 +27,8 @@ func _process(_delta):
 	if abs(velocity.x) > .1 :
 		anim_tree.set("parameters/conditions/idle", false)
 		anim_tree.set("parameters/conditions/walk", true)
+		if $SFX/WalkSound.is_playing() == false and is_on_floor():
+			$SFX/WalkSound.play()
 	else:
 		anim_tree.set("parameters/conditions/idle", true)
 		anim_tree.set("parameters/conditions/walk", false)
@@ -47,6 +49,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"):
 		anim_tree.set("parameters/conditions/jump", false)
 		if is_on_floor() or (num_jumps < 1 and extra_jump):
+			$SFX/JumpSound.play()
 			velocity.y = JUMP_VELOCITY
 			anim_tree.set("parameters/conditions/jump", true)
 			num_jumps += 1 if not is_on_floor() else 0
@@ -77,6 +80,8 @@ func _physics_process(delta):
 	
 	# Handle attack
 	if Input.is_action_just_pressed("attack") and has_axe:
+		if $SFX/AttackSound.is_playing() == false:
+			$SFX/AttackSound.play()
 		anim_tree.set("parameters/conditions/attack", true)
 	else:
 		anim_tree.set("parameters/conditions/attack", false)
@@ -86,18 +91,22 @@ func _physics_process(delta):
 # Pick stuff up
 func pick_up_axe():
 	if has_axe == false:
+		$SFX/PickUpSound.play()
 		has_axe = true
 		GAME_AXE.call_deferred("set_disable_mode", true)
 		GAME_AXE.visible = false
 
 func pick_up_bread():
+	$SFX/PickUpSound.play()
 	extra_jump = true
 	GAME_DJ.call_deferred("set_disable_mode", true)
 	GAME_DJ.visible = false
 
 func pick_up_obj():
+	$SFX/PickUpSound.play()
 	has_obj = true
 	GAME_OBJ.call_deferred("set_disable_mode", true)
+	GAME_OBJ.set_deferred("monitoring", false)
 	GAME_OBJ.visible = false
 
 # Ladder Climbing

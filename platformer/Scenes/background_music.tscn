@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6xoljuwhk2ht"]
+
+[ext_resource type="AudioStream" uid="uid://dyktjiprwr2i6" path="res://Assets/Audio/slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010.mp3" id="1_aqjd5"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_aqjd5")
+volume_db = -5.622
+autoplay = true
