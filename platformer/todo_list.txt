@@ -1,11 +1,12 @@
 TODO:
 	
 	global:
-	- add music
-	- add sfx
 	- UI
 		- timer, lives?, objective list?
 	- death animation
 	
 	for level 2: 
-	- make level
+	- add camera boundary
+	- add decor
+	- add more enemies
+	- create victory screen
