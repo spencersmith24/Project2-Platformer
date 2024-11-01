@@ -176,6 +176,7 @@ script = ExtResource("3_okkwb")
 canContinue = true
 
 [node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 
