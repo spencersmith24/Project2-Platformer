@@ -1,0 +1,131 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8lpgc86rnt6c"]
+
+[ext_resource type="Texture2D" uid="uid://chuphpovuifxo" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/sky.png" id="1_3yg7j"]
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_vku5l"]
+[ext_resource type="Texture2D" uid="uid://7jyerg3cql8u" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/clouds_1.png" id="2_l8kuu"]
+[ext_resource type="Texture2D" uid="uid://c50k3iut0wj78" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/clouds_2.png" id="3_ojrl1"]
+[ext_resource type="Texture2D" uid="uid://1s3y4decdpfe" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/rocks.png" id="4_rw1oh"]
+[ext_resource type="Texture2D" uid="uid://byal0n1ej2ijf" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/plant.png" id="5_578u4"]
+[ext_resource type="Texture2D" uid="uid://clcjujlfx04st" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_1.png" id="6_gbsvh"]
+[ext_resource type="Texture2D" uid="uid://wjftun1av6h0" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_2.png" id="7_qssvo"]
+[ext_resource type="Texture2D" uid="uid://cr5s78266uajn" path="res://Assets/prototype/prototyping_assets/game_background_3/layers/ground_3.png" id="8_78oid"]
+[ext_resource type="FontFile" uid="uid://c8jn1h8q08ejm" path="res://Assets/Font/dumbledor/dum1/dum1ital.ttf" id="10_qy6x1"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_vku5l")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(900, 540)
+scale = Vector2(1, 1.03)
+transform = Transform2D(1, 0, 0, 1.03, 900, 540)
+follow_viewport_scale = 0.1
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+position = Vector2(9, 5)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture = ExtResource("1_3yg7j")
+
+[node name="Clouds_1" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+position = Vector2(9, 0)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_1"]
+texture = ExtResource("2_l8kuu")
+
+[node name="Rocks" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+position = Vector2(9, 0)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Rocks"]
+texture = ExtResource("4_rw1oh")
+
+[node name="Clouds_2" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+position = Vector2(9, 0)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds_2"]
+texture = ExtResource("3_ojrl1")
+
+[node name="Plant" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+position = Vector2(9, 0)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Plant"]
+texture = ExtResource("5_578u4")
+
+[node name="Ground_1" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+position = Vector2(9, 0)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_1"]
+texture = ExtResource("6_gbsvh")
+
+[node name="Ground_2" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+position = Vector2(9, 0)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_2"]
+texture = ExtResource("7_qssvo")
+
+[node name="Ground_3" type="ParallaxLayer" parent="ParallaxBackground" groups=["Background"]]
+position = Vector2(9, 0)
+motion_mirroring = Vector2(1920, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground_3"]
+texture = ExtResource("8_78oid")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 3.0
+offset_right = 40.0
+offset_bottom = 43.0
+
+[node name="Title" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 1069.0
+offset_right = 1786.0
+offset_bottom = 6058.0
+pivot_offset = Vector2(825, 275)
+theme_override_colors/font_color = Color(0.883701, 0.5476, 0.339671, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_qy6x1")
+theme_override_font_sizes/font_size = 200
+text = "Designed and developed by SPENCER SMITH
+
+Character from 
+PENZILLA
+
+Assets from 
+CAINOS
+
+Backgrounds from 
+ITCH 
+
+Music from 
+DMITRY TARAS
+
+Sfx from 
+LEOHPAZ
+
+Sfx from 
+KENNY
+
+Font from 
+1001 FONTS
+
+Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

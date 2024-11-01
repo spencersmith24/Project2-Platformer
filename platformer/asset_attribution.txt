@@ -1,14 +1,16 @@
-- backgrounds from itch. 
-	https://free-game-assets.itch.io/free-horizontal-game-backgrounds
+- designed and developed by Spencer Smith
+	- https://github.com/spencersmith24/Project2-Platformer
 
-- assets from Cainos
-	https://cainos.itch.io/pixel-art-platformer-village-props
+- borrowed assets - 
 
 - character from Penzilla
-	https://penzilla.itch.io/hooded-protagonist
+	- https://penzilla.itch.io/hooded-protagonist
 
-- font from 1001 fonts.
-	https://www.1001fonts.com/dumbledor-font.html
+- assets from Cainos
+	- https://cainos.itch.io/pixel-art-platformer-village-props
+
+- backgrounds from itch. 
+	- https://free-game-assets.itch.io/free-horizontal-game-backgrounds
 
 - music from Dmitry Taras
 	- https://pixabay.com/music/scary-childrens-tunes-slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010/
@@ -17,3 +19,6 @@
 	- https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack
 - sfx from kenny
 	- https://kenney.nl/assets/impact-sounds
+
+- font from 1001 fonts.
+	- https://www.1001fonts.com/dumbledor-font.html

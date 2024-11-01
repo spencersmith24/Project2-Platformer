@@ -61,7 +61,7 @@ func _on_market_body_entered(body):
 		if body.has_obj:
 			body.has_obj = false
 			canContinue = true
-			GAME_MARKET.text = "Thank you! Press 'ENTER' to turn in the pumpkin."
+			GAME_MARKET.text = "\"Thank you!\" Press 'ENTER' to turn in the pumpkin."
 		else:
 			pass
 
@@ -70,5 +70,5 @@ func _on_market_body_exited(body: Node2D) -> void:
 
 func can_continue_check():
 	if Input.is_action_just_pressed("continue") and canContinue:
-		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+		get_tree().change_scene_to_file("res://Scenes/credits.tscn")
 		canContinue = false

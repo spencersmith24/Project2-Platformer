@@ -172,7 +172,7 @@ scale = Vector2(1, -1)
 
 [node name="Market" parent="lvlObjects" instance=ExtResource("11_hp45c")]
 position = Vector2(134, -687)
-text = "That stew was so good that we want to make more... but our second pumpkin was stolen. Please find it!"
+text = "\"That stew was so good that we want to make more... but our second pumpkin was stolen. Please find it!\""
 
 [node name="Pumpkin" parent="lvlObjects" instance=ExtResource("12_keufi")]
 position = Vector2(866, -253)
