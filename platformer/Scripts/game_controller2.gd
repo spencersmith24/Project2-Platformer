@@ -1,10 +1,9 @@
 extends Node
 
 @onready var PLAYER = $"../Player"
-#@onready var BARRIER = $"../lvlObjects/Barrier"
-#@onready var GAME_DJ =  $"../lvlObjects/DoubleJumpItem"
 @onready var GAME_OBJ = $"../lvlObjects/Pumpkin"
 @onready var HIDDEN_LAYER = $"../TileMapLayers/HiddenLayer"
+@onready var DISAPPEAR_LAYER = $"../TileMapLayers/DisappearLayer"
 @onready var GAME_MARKET = $"../lvlObjects/Market"
 @onready var PLAYER_START_POS = PLAYER.position
 
@@ -21,7 +20,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
 	can_continue_check()
 	obj_check()
 
@@ -29,22 +27,7 @@ func reset_level():
 	if has_checkpoint == false:
 		PLAYER.has_axe = false
 		PLAYER.has_obj = false
-		PLAYER.extra_jump = false
 		PLAYER.position = PLAYER_START_POS
-		#
-		#HIDDEN_LAYER.process_mode = Node.PROCESS_MODE_INHERIT
-		#HIDDEN_LAYER.visible = true
-		#HIDDEN_LAYER.collision_enabled = true
-		
-		#GAME_AXE.process_mode = Node.PROCESS_MODE_INHERIT
-		#GAME_AXE.visible = true
-		
-		#BARRIER.process_mode = PROCESS_MODE_INHERIT
-		#BARRIER.modulate.a = 1
-		
-		#GAME_DJ.process_mode = Node.PROCESS_MODE_INHERIT
-		#GAME_DJ.visible = true
-		
 		GAME_OBJ.process_mode = Node.PROCESS_MODE_INHERIT
 		GAME_OBJ.visible = true
 	else:
@@ -52,9 +35,17 @@ func reset_level():
 
 func obj_check():
 	if PLAYER.has_obj:
-		#HIDDEN_LAYER.process_mode = Node.PROCESS_MODE_DISABLED
-		#HIDDEN_LAYER.visible = false
-		#HIDDEN_LAYER.collision_enabled = false
+		HIDDEN_LAYER.process_mode = Node.PROCESS_MODE_INHERIT
+		HIDDEN_LAYER.visible = true
+		HIDDEN_LAYER.collision_enabled = true
+		
+		DISAPPEAR_LAYER.process_mode = Node.PROCESS_MODE_DISABLED
+		DISAPPEAR_LAYER.visible = false
+		DISAPPEAR_LAYER.collision_enabled = false
+		
+		$"../lvlObjects/Enemies/Enemy6Path".process_mode = Node.PROCESS_MODE_DISABLED
+		$"../lvlObjects/Enemies/Enemy6Path".visible = false
+		
 		has_checkpoint = true
 		$"../Lamp".get_node("lanternLit").visible = true
 		$"../Lamp".get_node("lantern").visible = false

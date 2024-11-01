@@ -6,7 +6,5 @@ TODO:
 	- death animation
 	
 	for level 2: 
-	- add camera boundary
 	- add decor
-	- add more enemies
 	- create victory screen
